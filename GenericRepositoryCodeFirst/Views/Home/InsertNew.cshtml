@@ -1,0 +1,46 @@
+﻿@model GRDataModel.RepRegister
+@{
+    ViewBag.Title = "InsertNew";
+}
+
+@using (Html.BeginForm("InsertNew", "Home", FormMethod.Post))
+{
+    <div>
+        <fieldset>
+            <legend>Add New
+            </legend>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Name:
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>EmailId:
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Email)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mobile:
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(model => model.Mobile)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="submit" />
+                            <input type="button" value="Reset" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
+}
+

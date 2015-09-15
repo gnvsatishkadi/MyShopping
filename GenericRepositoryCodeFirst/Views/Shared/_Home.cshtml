@@ -1,0 +1,515 @@
+﻿@{
+    ViewBag.page = "Home";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/AngularJS/AngularContent/Home.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.js"></script>
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.2.0/ui-bootstrap-tpls.js"></script>*@
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
+    <script src="~/AngularJS/AngularMVC/UploadModule.js"></script>
+    <script src="~/AngularJS/AngularMVC/UploadController.js"></script>
+    <script src="~/AngularJS/AngularMVC/UploadServices.js"></script>
+    <link href="~/AngularJS/AngularMVC/ModalHtml.css" rel="stylesheet" />
+    <link href="~/AngularJS/AngularMVC/TrackingPage.css" rel="stylesheet" />
+
+    <script src="~/AngularJS/AngularMVC/LandLoginScript.js"></script>
+    <link href="~/AngularJS/AngularMVC/LandLoginStyle.css" rel="stylesheet" />
+
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="example.js"></script>
+
+
+    <style type="text/css">
+        h2 {
+            margin: 10px;
+            color: #00ff90;
+            padding-top: 90px;
+            font-size: 52px;
+        }
+
+        .item {
+            background: rgba(255, 255, 255, 0.63);
+            text-align: center;
+            height: 350px !important;
+        }
+
+        .carousel {
+            margin-top: 20px;
+        }
+
+        .bs-example {
+            margin: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+    <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+
+
+
+
+
+
+
+    @*<script type="text/javascript">
+        $(document).ready(function () {
+     
+            $("#MasterHeaderPanel .col-md-2 a").click(function () {
+                var value = $(this).attr('name');
+                var Gender = '';
+
+                // $("#DynamicPartial").load('@(Url.Action("DynamicPartials", "Paytm", new { Category = "All" }))');
+                $("#DynamicPartial").load('@Url.Action("DynamicPartials", "Paytm")?Category=' + value, function (event) {
+                    $("#MenClothing").click(function () {
+                        Gender = $("#MenClothing").find('img').attr('name');
+                        window.location.href = "@Url.Action("MenClothsWorld", "Cloth")?Category='" + Gender + '-' + value;
+                        return false;
+                    });
+
+                    $("#WomanClothing").click(function () {
+                        Gender = $("#WomanClothing").find('img').attr('name');
+                        window.location.href = "@Url.Action("MenClothsWorld", "Cloth")?Category='" + Gender + '-' + value;
+                        return false;
+                    });
+                });
+               //window.location.href = "@Url.Action("Landing", "Paytm", new { @Category = "All" })";
+            });
+        });
+    </script>*@
+</head>
+<body ng-app="PaytmApp" scroll>
+    <div ng-controller="SelectingIconsController">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="completediv">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+
+                                <div class="col-md-12" ng-show="MenuOne">
+                                    <div class="navbar navbar-inverse navbar-fixed-top">
+                                        <div class="row" style="color: white;">
+                                            <div class="row firstmenurow">
+                                                <div class="col-md-2">
+                                                    @*<img src="~/Images/shop1.png" height="62" width="155" />*@
+                                                    <span class="logoheading1">MyShopping</span>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/" class="Ahref1">
+                                                                <span class="glyphicon glyphicon-home"></span>&nbsp;Home
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="SearchBoxClass" type="search" ng-model="SearchBoxData" placeholder="Searching..." />
+                                                        </div>
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/Shop/TrackOrderLive" class="Ahref1">
+                                                                <span class="glyphicon glyphicon-map-marker"></span>&nbsp;Tracks
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/Shop/Cart" class="Ahref1">
+                                                                <span class="glyphicon glyphicon-heart"></span>&nbsp;Cares</a>
+                                                        </div>
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/Shop/Cart" class="Ahref1">
+                                                                <span class="glyphicon  glyphicon-shopping-cart"></span>Cart:&nbsp;{{LayoutCartItemsCount}}
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-2 LayoutHeadMenu">
+                                                            <div ng-show="LoginUsername == 'Guest'">
+                                                                <div class="row">
+                                                                    @*<div class="col-md-12 Rolehref">
+                                                                <a class="">
+                                                                    <span class="glyphicon glyphicon-user"></span>&nbsp;Welcome&nbsp;{{LoginUsername}}
+                                                                </a>
+                                                            </div>*@
+                                                                    <div class="col-md-12">
+                                                                        <a href="#/Home/Login" class="Ahref1">
+                                                                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;Login
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div ng-show="LoginUsername != 'Guest'">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        @* <form>*@
+                                                                        @*<div class="btn-group">*@
+                                                                        @*<button type="button" data-toggle="dropdown" class="MenuButton dropdown-toggle">User Menu<span class="caret"></span></button>*@
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        <a class="Ahref1 dropdown-toggle" data-toggle="dropdown">{{LoginEmailId}}</a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><b style="color: #4495f5;">&nbsp;&nbsp;&nbsp;Welcome</b>&nbsp;<span class="glyphicon glyphicon-thumbs-up"></span>
+                                                                                </></li>
+                                                                            <li><a href="#/User/Profile" class="MenuButtonChild">
+                                                                                <span class="glyphicon glyphicon-user"></span>&nbsp;{{LoginUsername}}
+                                                                            </a></li>
+                                                                            <li class="divider"></li>
+                                                                            <li>
+                                                                                <a href="#/Shop/MyOrders" class="MenuButtonChild">
+                                                                                    <span class="glyphicon glyphicon-folder-open"></span>&nbsp;MyOrders
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="divider"></li>
+                                                                            <li><a href="#/User/UpdateProfile/" class="MenuButtonChild">
+                                                                                <span class="glyphicon glyphicon-th-list"></span>&nbsp;Profiles 
+                                                                            </a></li>
+                                                                            <li class="divider"></li>
+                                                                            <li><a href="#/Home/LogOut" class="MenuButtonChild" ng-click="LogoutUser()">
+                                                                                <span class="glyphicon glyphicon-log-out"></span>&nbsp;LogOut
+                                                                            </a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row secondmenurow" ng-hide="head1Hide">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-1 ">
+                                                            <a href="#/Shop/M/Mobile" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('Mobiles')">
+                                                                @*<img src="~/Images/Mobile.jpg" class="img-circle" id="Mobiles" alt="Mobiles" width="36" height="34"><br />*@
+                                                                Mobiles  </a>
+
+                                                        </div>
+                                                        <div class="col-md-1 ">
+                                                            <a href="#/Shop/M/Cloth" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('Men')">
+                                                                @*<img src="~/Images/Mencloth.jpg" class="img-circle" id="Cloths" alt="Cloths" width="36" height="34"><br />*@
+                                                                Men</a>
+
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <a href="#/Shop/W/Cloth" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('Women')">
+                                                                @*<img src="~/Images/Mencloth.jpg" class="img-circle" id="Cloths" alt="Cloths" width="36" height="34"><br />*@
+                                                                Women</a>
+
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <a href="#/Shop/M/Electronics" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('Electronics')">
+                                                                @*<img src="~/Images/HmApp.jpg" class="img-circle" alt="Electronics" width="36" height="34"><br />*@
+
+                                                                Electronics </a>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <a href="#/Shop/M/FootWares" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('FootWares')">
+                                                                @*<img src="~/Images/FootWare.jpg" class="img-circle" alt="FootWare" width="36" height="34"><br />*@
+
+                                                                Footware  </a>
+
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <a href="#/Shop/M/Kitchen" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('Kitchen')">
+                                                                @*<img src="~/Images/Kitchens.jpg" class="img-circle" alt="Kitchens" width="36" height="34"><br />*@
+
+                                                                Kitchen   </a>
+
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <a href="#/Shop/M/Books" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('Books')">
+                                                                @*<img src="~/Images/Books.jpg" class="img-circle" alt="Books" width="36" height="34"><br />*@
+                                                                Books  </a>
+
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <a href="#/Shop/M/Sports" class="MainAhref" role="button" ng-mouseenter="GetDataBySelectingIcons('Sports')">
+                                                                @*<img src="~/Images/Books.jpg" class="img-circle" alt="Books" width="36" height="34"><br />*@
+                                                                Sports  </a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row opencategorymenu" id="Menuopen" ng-show="HideCategoryListDisplayDiv">
+                                                <div class="col-md-12">
+                                                    <div ng-switch="SelectedIcon">
+                                                        <div ng-switch-when="Mobiles">
+                                                            <div class="row" ng-hide="hide" data-id='101' ng-mouseleave='delete()'>
+                                                                <div class="col-md-3">
+                                                                    <div id="Mobiles">
+                                                                        <img src="~/Images/Mobile.jpg" class="img-circle" width="200" height="200" alt="Search Mobiles Here" /><br />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label>Mobile Category</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-switch-when="Men">
+                                                            <div class="row" ng-hide="hide" data-id='101' ng-mouseleave='delete()'>
+                                                                <div class="col-md-3">
+                                                                    <div id="MenClothing">
+                                                                        <img name="MenClothing" class="img-circle" src="~/Images/Mencloth.jpg" width="200" height="200" /><br />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label>Men Category</label>
+                                                                    <li ng-repeat="item in DynClothData | filter:{Gender:'M'}">
+                                                                        <a ng-href="#/Shop/MenCloth/{{item.CategoryId}}" ng-click="ChooseOptions(item.CategoryId,item.Category)">
+                                                                            <p class="ProductDescLabel">{{item.Category}}</p>
+                                                                        </a>
+                                                                    </li>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-switch-when="Women">
+                                                            <div class="row" ng-hide="hide" data-id='101' ng-mouseleave='delete()'>
+                                                                <div class="col-md-3">
+                                                                    <div id="WomanClothing">
+                                                                        <img name="WomanClothing" class="img-circle" src="~/Images/Womancloth.jpg" width="200" height="200" /><br />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3 col-md-offset-0">
+                                                                    <label>Women Category</label>
+                                                                    <li ng-repeat="item in DynClothData | filter:{Gender:'F'}">
+                                                                        <a ng-href="#/Shop/WomanCloth/{{item.CategoryId}}" ng-click="ChooseOptions(item.CategoryId,item.Category)">
+                                                                            <p class="ProductDescLabel">{{item.Category}}</p>
+                                                                        </a>
+                                                                    </li>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-switch-when="Electronics">
+                                                            <div class="row" ng-hide="hide" data-id='101' ng-mouseleave='delete()'>
+                                                                <div class="col-md-12 col-md-offset-4">
+                                                                    <div id="Electronics">
+                                                                        <img name="Electronics" class="img-circle" src="~/Images/Electronics.jpg" width="200" height="200" /><br />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-switch-when="FootWares">
+                                                            <div class="row" ng-hide="hide" data-id='101' ng-mouseleave='delete()'>
+                                                                <div class="col-md-2 col-md-offset-1">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div id="MenFootware">
+                                                                        <img name="MenFootware" class="img-circle" src="~/Images/menfoot.jpg" width="200" height="200" /><br />
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <div id="WomanFootware">
+                                                                        <img name="WomanFootware" class="img-circle" src="~/Images/womanfoot.jpg" width="200" height="200" /><br />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-3 col-md-offset-0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-switch-when="Kitchen">
+                                                            <div class="row" ng-hide="hide" data-id='101' ng-mouseleave='delete()'>
+                                                                <div class="col-md-7 col-md-offset-5">
+                                                                    <div id="Kitchen">
+                                                                        <img name="Kitchen" class="img-circle" src="~/Images/Kitchen.jpg" width="200" height="200" /><br />
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div ng-switch-when="Books">
+                                                            <div class="row" ng-hide="hide" data-id='101' ng-mouseleave='delete()'>
+                                                                <div class="col-md-8 col-md-offset-4">
+                                                                    <div id="Books">
+                                                                        <img name="Books" class="img-circle" src="~/Images/Books.jpg" width="200" height="200" /><br />
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12" ng-show="MenuTwo">
+                                    <div class="navbar navbar-inverse navbar-fixed-top">
+                                        <div class="row" style="color: white;">
+                                            <div class="row" style="background-color: #45a3f3; margin: 0px 5px 0px 5px; height: 50px;">
+                                                <div class="col-md-2">
+                                                    @*<img src="~/Images/shop1.png" height="62" width="155" />*@
+                                                    <span class="logoheading1">MyShopping</span>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="row">
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/" class="Ahref1">
+                                                                <span class="glyphicon glyphicon-home"></span>&nbsp;Home
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="SearchBoxClass" type="search" ng-model="SearchBoxData" placeholder="Searching..." />
+                                                        </div>
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/Shop/TrackOrderLive" class="Ahref1">
+                                                                <span class="glyphicon glyphicon-map-marker"></span>&nbsp;Tracks
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/Shop/Cart" class="Ahref1">
+                                                                <span class="glyphicon glyphicon-heart"></span>&nbsp;Cares</a>
+                                                        </div>
+                                                        <div class="col-md-1 LayoutHeadMenu">
+                                                            <a href="#/Shop/Cart" class="Ahref1">
+                                                                <span class="glyphicon  glyphicon-shopping-cart"></span>Cart:&nbsp;{{LayoutCartItemsCount}}
+                                                            </a>
+                                                        </div>
+                                                        <div class="col-md-2 LayoutHeadMenu">
+                                                            <div ng-show="LoginUsername == 'Guest'">
+                                                                <div class="row">
+                                                                    @*<div class="col-md-12 Rolehref">
+                                                                <a class="">
+                                                                    <span class="glyphicon glyphicon-user"></span>&nbsp;Welcome&nbsp;{{LoginUsername}}
+                                                                </a>
+                                                            </div>*@
+                                                                    <div class="col-md-12">
+                                                                        <a href="#/Home/Login" class="Ahref1">
+                                                                            <span class="glyphicon glyphicon-log-in"></span>&nbsp;Login
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div ng-show="LoginUsername != 'Guest'">
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        @* <form>*@
+                                                                        @*<div class="btn-group">*@
+                                                                        @*<button type="button" data-toggle="dropdown" class="MenuButton dropdown-toggle">User Menu<span class="caret"></span></button>*@
+                                                                        <span class="glyphicon glyphicon-user"></span>
+                                                                        <a class="Ahref1 dropdown-toggle" data-toggle="dropdown">{{LoginEmailId}}</a>
+                                                                        <ul class="dropdown-menu">
+                                                                            <li><b style="color: #4495f5;">&nbsp;&nbsp;&nbsp;Welcome</b>&nbsp;<span class="glyphicon glyphicon-thumbs-up"></span>
+                                                                                </></li>
+                                                                            <li><a href="#/User/Profile" class="MenuButtonChild">
+                                                                                <span class="glyphicon glyphicon-user"></span>&nbsp;{{LoginUsername}}
+                                                                            </a></li>
+                                                                            <li class="divider"></li>
+                                                                            <li>
+                                                                                <a href="#/Shop/MyOrders" class="MenuButtonChild">
+                                                                                    <span class="glyphicon glyphicon-folder-open"></span>&nbsp;MyOrders
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="divider"></li>
+                                                                            <li><a href="#/User/UpdateProfile/" class="MenuButtonChild">
+                                                                                <span class="glyphicon glyphicon-th-list"></span>&nbsp;Profiles 
+                                                                            </a></li>
+                                                                            <li class="divider"></li>
+                                                                            <li><a href="#/Home/LogOut" class="MenuButtonChild" ng-click="LogoutUser()">
+                                                                                <span class="glyphicon glyphicon-log-out"></span>&nbsp;LogOut
+                                                                            </a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div ng-class="DynamicMenuGap"></div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12" ng-controller="DashboardClothProductController">
+                                            @RenderBody()
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-1"></div>
+                                <div class="col-md-10">
+                                </div>
+                                <div class="col-md-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mainviewpadding">
+                            <div class="row">
+                                <div class="col-md-12" style="background-color: #ebeaea">
+                                    <div ng-view>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row Footerdiv">
+                        <div class="col-md-12">
+                            <div class="row FooterPadding">
+
+                                <div class="col-md-3">
+                                    <b class="footerfont">Assurance</b><br />
+                                    At MyShopping, we provide 100% assurance. If you have any issue, your money is immediately refunded. Sit back and enjoy your shopping.
+
+                                </div>
+                                <div class="col-md-3">
+                                    <b class="footerfont">Myshopping Trust</b><br />
+                                    Your money is yours! All refunds come with no question asked guarantee.
+                                </div>
+                                <div class="col-md-3">
+                                    <b class="footerfont">Our Promise</b><br />
+                                    Happiness is guaranteed at MyShopping. If we fall short of your expectations, give us a shout.
+                                </div>
+                                <div class="col-md-3">
+                                    <b class="footerfont">Contact</b><br />
+                                    MyShopping.com<br />
+                                    Madhapur<br />
+                                    Hyderabad<br />
+                                    500081<br />
+                                    skadi@2xprime.com
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,184 @@
+﻿@{
+    ViewBag.Title = "Landing";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paytm Welcomes you</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+
+    <script type="text/javascript">
+        var app = angular.module('CrudModule', []);
+     
+        app.controller('crudController', function ($scope, $http) {
+            
+            getAllCounry();
+
+            function getAllCounry() {
+                 
+                $http({
+                    method: 'Get',
+                    url: '/Paytm/GetCountrys'
+                }).success(function (data) {
+                    $scope.countryList = data;
+                }).error(function () {
+                    $scope.errorMessage = 'Not found';
+                });
+            }
+
+            $scope.GetStatesList = function () {
+                 
+                var getCountry = $scope.S.Country;
+                if (getCountry) {           // Check here country Id is null or not
+                     
+                    $http({
+                        method: 'POST',
+                        url: '/Paytm/GetStatesByCountryId/',
+                        data: JSON.stringify({ CountrysId: getCountry.CountrysId })
+                    }).success(function (data) {
+                        alert(data);
+                        $scope.stateList = data;
+                    }).error(function (data) {
+                        alert(data.message);
+                        $scope.message = 'not found';
+                    });
+                }
+                else {
+                    $scope.stateList = null;
+                }
+            }
+        });
+    </script>
+</head>
+<body ng-app="CrudModule">
+
+    <div class="wrap " ng-controller="crudController">
+        <div class="section s1">
+            <div class="inner ">
+                <h1>Login Here</h1>
+                <form name="LoginForm" ng-submit="SubmitLoginData(Login)">
+                    <input type="text" ng-model="Login.Username" name="Username" id="Username" required placeholder="Username" />
+                    <input type="password" ng-model="Login.Password" name="Password" id="Password" required placeholder="Password" />
+                    <input type="submit" id="Login" ng-disabled="LoginForm.$invalid" value="Login" />
+                </form>
+            </div>
+        </div>
+
+        <div class="section s2">
+            <div class="inner">
+                <h1>Sigup Here</h1>
+                <form name="Signup" ng-submit="SubmitSignupData(Signup)">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label>FirstName</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.FName" required ng-pattern="Signup.text" ng-maxlength="20" ng-minlength="4" />
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>LastName</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.LName" required ng-pattern="Signup.text" ng-maxlength="20" ng-minlength="4" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>UserName</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.UName" required ng-pattern="Signup.text" ng-maxlength="10" ng-minlength="4" />
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>Password</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="password" ng-model="S.PWord" required ng-pattern="Signup.text" ng-maxlength="20" ng-minlength="4" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>EmailId</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="email" ng-model="S.Email" required ng-pattern="Signup.text" ng-maxlength="40" />
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>Mobile</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.Mobile" required ng-pattern="Signup.text" ng-maxlength="12" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Gender</label>
+                                </td>
+                                <td>
+                                    <input type="radio" name="gender" ng-model="S.Gender" value="Male" />Male
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>DateOfBirth</label>
+                                </td>
+                                <td>
+                                    <input type="date" name="input" ng-model="S.DOB" placeholder="MM--dd--yyyy" min="01-01-1990" max="12-31-2005" required />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Country</td>
+                                <td>
+                                    <select ng-model="S.Country" ng-options="c.CountryName for c in countryList track by c.CountrysId" ng-change="GetStatesList()">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>State</td>
+                                <td>
+                                    <select ng-model="S.State" ng-options="s.StateName for s in stateList track by s.StateId">
+                                        <option value="">Select State</option>
+                                    </select>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input class="signup" type="submit" id="SignUp" ng-disabled="Signup.$invalid" value="SignUp" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <div class="section s3">
+            <div class="inner">
+                <h1>Section 3</h1>
+            </div>
+        </div>
+
+        <div class="section s4">
+            <div class="inner">
+                <h1>Section 4</h1>
+            </div>
+        </div>
+
+        <div class="section s5">
+            <div class="inner">
+                <h1>Section 5</h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

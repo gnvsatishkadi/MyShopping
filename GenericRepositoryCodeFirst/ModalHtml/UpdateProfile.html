@@ -1,0 +1,304 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>UpdateProfile</title>
+
+</head>
+<body>
+    <div ng-controller="UpdateProfileCtrl">
+        <div class="row ProfileMainDiv">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 ProfileCenterDiv">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row TrackLiveOrderGap">
+                                    <div class="col-md-12"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="ProfileLeft">
+
+                                            <div class="row TrackLiveOrderGap">
+                                                <div class="col-md-12"></div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <img src="../Images/Mencloth.jpg" class="ProfilePic" />
+                                                </div>
+                                            </div>
+                                            <div class="row TrackLiveOrderGap">
+                                                <div class="col-md-12"></div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="Profilefont">{{LoginEmailId}}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p class="Profilefont">{{LoginMobileNumber}}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <img src="../Images/profpic.png" class="profileimgs" width="40" height="40" tooltip="ChangeProfile" ng-click="ClickUpdateMenus('EditUSerInfo')" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <img src="../Images/address.jpg" class="profileimgs" width="40" height="40" tooltip="Add Address" ng-click="ClickUpdateMenus('AddAddress')" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <img src="../Images/changepass.jpg" class="profileimgs" width="40" height="40" tooltip="Change Password" ng-click="ClickUpdateMenus('ChangePassword')" />
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <img src="../Images/wallet.jpg" class="profileimgs" width="40" height="40" tooltip="Wallet Balance" ng-click="ClickUpdateMenus('Wallet')" />
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="row MenuBtnRow">
+                                            <div class="col-md-2">
+                                                <p class="MenuBtnClass" ng-click="ClickUpdateMenus('EditUSerInfo')">
+                                                    <span class="glyphicon glyphicon-heart"></span>&nbsp;Profile
+                                                </p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p class="MenuBtnClass" ng-click="ClickUpdateMenus('AddAddress')">
+                                                    <span class="glyphicon glyphicon-heart"></span>&nbsp;Address
+                                                </p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p class="MenuBtnClass" ng-click="ClickUpdateMenus('ChangePassword')">
+                                                    <span class="glyphicon glyphicon-heart"></span>&nbsp;Password
+                                                </p>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <p class="MenuBtnClass" ng-click="ClickUpdateMenus('Wallet')">
+                                                    <span class="glyphicon glyphicon-heart"></span>&nbsp;Wallet
+                                                </p>
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+
+                                                <div class="row">
+                                                    <div class="col-md-11 col-md-offset-1">
+                                                        <div ng-show="ShowHide.EditUserInfo">
+                                                            <form name="EditProfile" ng-submit="EditProfileInfo(EditProfile)">
+                                                                <p class="ChangedProfilefontBig">Changing Profile Information</p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">EmailID</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Profile.EditEmail" readonly="true" />
+                                                                    </div>
+                                                                    <div class="col-md-12" ng-show="false">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Profile.Password" readonly="true" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">Mobile Number</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Profile.EditMobile" maxlength="10" numbers-only="numbers-only" placeholder="New Mobile Number" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">UserName</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Profile.EditUserName" placeholder="Username" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row TrackLiveOrderGap">
+                                                                    <div class="col-md-12"></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-10 col-md-offset-2">
+                                                                        <button type="submit" class="MenuBtnClass">Submit</button>
+                                                                        <button type="button" class="MenuBtnClass">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div ng-show="ShowHide.EditUserInfoSuccess">
+
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="row">
+                                                                        <div class="col-md-9 col-md-offset-3">
+                                                                            <img src="../Images/success.jpg" width="100" height="100" />
+                                                                        </div>
+                                                                        <div class="col-md-10 col-md-offset-2">
+                                                                            <p class="ChangedProfilefontBig">Your Profile is Updated Successfully....</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-11 col-md-offset-1">
+                                                        <div ng-show="ShowHide.EditUserAddress">
+                                                            <form name="AddingAddress" ng-submit="AddingAddressProfileInfo(AddingAddress)">
+                                                                <p class="ChangedProfilefontBig">Storing Delivery Address in advance</p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">ReceiverName</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Address.ReceiverName" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">House/Flat No:</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Address.HouseNo" placeholder="Hous Number" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">Address</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Address.Address" placeholder="Full Address" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">Mobile Number</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Address.Mobile" maxlength="10" numbers-only="numbers-only" placeholder="Mobile Number" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">State</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Address.State" placeholder="State" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">PinCode</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="text" class="profileinputctrls" ng-model="Address.PinCode" placeholder="PinCode" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row TrackLiveOrderGap">
+                                                                    <div class="col-md-12"></div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-10 col-md-offset-2">
+                                                                        <button type="submit" class="MenuBtnClass">Save</button>
+                                                                        <button type="button" class="MenuBtnClass">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div ng-show="ShowHide.EditUserAddressSuccess">
+                                                            Successs address
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-11 col-md-offset-1">
+                                                        <div ng-show="ShowHide.EditUserPassword">
+                                                            <form name="ChangePassword" ng-submit="EditPasswordInfo(ChangePassword)">
+                                                                <p class="ChangedProfilefontBig">Changing Password information</p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">New Password</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="password" class="profileinputctrls" ng-model="ChangePW.NewPassword" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <p class="ChangedProfilefont">Repeat New Password again</p>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <input type="password" class="profileinputctrls" ng-model="ChangePW.CopyNewPassword" />
+                                                                    </div>
+                                                                </div>
+                                                                <p></p>
+                                                                <div class="row">
+                                                                    <div class="col-md-10 col-md-offset-2">
+                                                                        <button type="submit" class="MenuBtnClass">Change</button>
+                                                                        <button type="button" class="MenuBtnClass">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div ng-show="ShowHide.EditUserPasswordSuccess">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="row">
+                                                                        <div class="col-md-9 col-md-offset-3">
+                                                                            <img src="../Images/success.jpg" width="100" height="100" />
+                                                                        </div>
+                                                                        <div class="col-md-10 col-md-offset-2">
+                                                                            <p class="ChangedProfilefontBig">Your Password is Changed Successfully....</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-11 col-md-offset-1">
+                                                        <div ng-show="ShowHide.EditUserWallet">
+                                                            wallet info
+                                                        </div>
+                                                        <div ng-show="ShowHide.EditUserWalletSuccess">
+                                                            success wallet info
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

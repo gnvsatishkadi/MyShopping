@@ -1,0 +1,22 @@
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataFacade.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataFacade.pdb
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataLayer.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataModel.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\EntityFramework.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataLayer.pdb
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataModel.pdb
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\EntityFramework.xml
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\obj\Debug\GRDataFacade.csprojResolveAssemblyReference.cache
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\obj\Debug\GRDataFacade.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataFacade\obj\Debug\GRDataFacade.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataFacade.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataFacade.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataLayer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataModel.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\EntityFramework.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataLayer.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\GRDataModel.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Debug\EntityFramework.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\obj\Debug\GRDataFacade.csprojResolveAssemblyReference.cache
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\obj\Debug\GRDataFacade.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\obj\Debug\GRDataFacade.pdb

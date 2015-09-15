@@ -1,0 +1,256 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Paytm Welcomes you</title>
+
+
+    <meta name="viewport" content="width=device-width">
+    <script src="~/AngularJS/AngularContent/Smite.min.js"></script>
+    <link href="~/AngularJS/AngularContent/SmiteCss.css" rel="stylesheet" />
+    <script src="~/AngularJS/AngularContent/SmiteJs.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    @*AngularJs Reference*@
+
+    <script src="~/AngularJS/AngularMVC/SmiteModule.js"></script>
+    <script src="~/AngularJS/AngularMVC/SmiteController.js"></script>
+    <script src="~/AngularJS/AngularMVC/SmiteService.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.subMenu').smint({
+                'scrollSpeed': 1500
+            });
+        });
+</script>
+</head>
+<body ng-app="CrudModule">
+
+    <div class="wrap " ng-controller="crudController">
+        <div class="section sTop">
+            <div class="inner">
+            </div>
+        </div>
+        <div class="subMenu">
+            <div class="inner">
+                <a href="#sTop" class="subNavBtn">Home</a>
+                <a href="#s1" class="subNavBtn">Login</a>
+                <a href="#s2" class="subNavBtn">SignUp</a>
+                <a href="#s3" class="subNavBtn">Forget Password</a>
+                <a href="#s4" class="subNavBtn">About Us</a>
+                <a href="#s5" class="subNavBtn">Contact US</a>
+            </div>
+        </div>
+
+        <div class="section s1">
+            <div class="inner ">
+                <h1>Login Here</h1>
+                <form name="LoginForm" ng-submit="SubmitLoginData(Login)">
+                    <input type="text" ng-model="Login.Username" name="Username" id="Username" placeholder="Username" />
+                    <input type="password" ng-model="Login.Password" name="Password" id="Password" placeholder="Password" />
+                    <input type="submit" id="Login" ng-disabled="LoginForm.$invalid" value="Login" />
+                </form>
+            </div>
+        </div>
+
+        <div class="section s2">
+            <div class="inner">
+                <h1>Signup Here</h1>
+                <form name="Signup" ng-submit="SubmitSignupData(Signup.$valid,Signup)">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="date" name="date" ng-model="S.date" readonly="true" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>FirstName</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.FName" ng-maxlength="20" ng-minlength="4"/>
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>LastName</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.LName" ng-maxlength="20" ng-minlength="4" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>UserName</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.UName" ng-maxlength="10" ng-minlength="4" />
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>Password</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="password" ng-model="S.PWord" ng-maxlength="20" ng-minlength="4" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>EmailId</label>
+                                </td>
+                                <td>
+                                    <input class="signup" name="signupEmial" type="text" ng-model="S.Email" ng-maxlength="40" ng-pattern="Email" />
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>Mobile</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.Mobile" ng-maxlength="12" required ng-keypress="ValidateMobile($event,S.Mobile)" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Gender</label>
+                                </td>
+                                <td colspan="2">
+                                    <input class="gender" type="radio" name="gender" ng-model="S.Gender" value="Male" /><label>Male</label>
+                                    <input class="gender" type="radio" name="gender" ng-model="S.Gender" value="Female" /><label>Female</label>
+                                </td>
+                                <td>
+                                    <label>DateOfBirth</label>
+                                </td>
+                                <td>
+                                    <input type="date" id="exampleInput" name="Date" ng-model="S.DOB"
+                                        placeholder="MM-dd-YYYY" min="01-01-1990" max="31-12-2005" style="width: 160px;" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Country</label></td>
+                                <td>
+                                    <select ng-model="S.Country" ng-options="c.CountryName for c in countryList track by c.CountrysId" ng-change="GetStatesList()" style="width: 160px;">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>Security Ques</label>
+                                </td>
+                                <td>
+                                    <select ng-model="S.Question" style="width: 200px;">
+                                        <option value="value">Select Question</option>
+                                        <option value="Car">What's your Favourate Car?</option>
+                                        <option value="NickName">What,s Your Nick Name?</option>
+                                        <option value="Bike">What's your Bike Number?</option>
+                                        <option value="Mother">What's your Mother's Name</option>
+                                        <option value="Place">What's your Favourate Place?</option>
+                                    </select>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>State</label></td>
+                                <td>
+                                    <select ng-model="S.State" ng-options="s.StateName for s in stateList track by s.StatesId" style="width: 160px;">
+                                        <option value="">Select State</option>
+                                    </select>
+                                </td>
+                                <td width="20px"></td>
+                                <td>
+                                    <label>Your Answer</label>
+                                </td>
+                                <td>
+                                    <input class="signup" type="text" ng-model="S.Answer" ng-pattern="Signup.text" ng-maxlength="10" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <input type="submit" id="Signup" value="SignUp" style="width: 100px;" />
+                                </td>
+                                <td>
+                                    <input type="button" id="Cancel" value="Cancel" style="width: 100px;" />
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+
+        <div class="section s3">
+            <div class="inner">
+                <h1>Login Here</h1>
+                <form name="Forget" ng-submit="SubmitForgetData(Forget.$valid,Forget)">
+                    <div style="flex-align: center">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Select your Question </br>
+                            At the Registration Time</label>
+
+                                </td>
+                                <td>
+                                    <select ng-model="S.Question" style="width: 200px;">
+                                        <option value="value">Select Question</option>
+                                        <option value="Car">What's your Favourate Car?</option>
+                                        <option value="NickName">What,s Your Nick Name?</option>
+                                        <option value="Bike">What's your Bike Number?</option>
+                                        <option value="Mother">What's your Mother's Name</option>
+                                        <option value="Place">What's your Favourate Place?</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Enter Your Answer</label></td>
+                                <td>
+                                    <input class="Forget" type="text" name="ForgetAns" ng-model="F.Answer" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Enter Your EmailID</label></td>
+                                <td>
+                                    <input class="Forget" type="email" name="ForhetEmail" ng-model="F.Email" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input class="Forget" type="submit" value="Proceed" id="ForgetClick" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="section s4">
+            <div class="inner">
+                <h1>Section 4</h1>
+            </div>
+        </div>
+
+        <div class="section s5">
+            <div class="inner">
+                <h1>Section 5</h1>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+
+

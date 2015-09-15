@@ -1,0 +1,84 @@
+﻿body {
+    border-radius: 10px;
+    background-color:white;
+    color: #0aaff3;
+}
+
+.Main {
+    background-color: rgba(247, 240, 240, 0.40);
+    padding: 30px 10px;
+}
+
+.Head {
+    border-radius: 10px;
+    padding: 20px 20px;
+    background-color: #b49393;
+}
+
+.Head1 {
+    border-radius: 15px;
+    padding: 30px 30px;
+    background-color: #bb8c8c;
+}
+
+form {
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+    /*form input {
+        appearance: none;
+        outline: 0;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255, 0.2);
+        width: 140px;
+        border-radius: 5px;
+        padding: 10px 15px;
+        margin: 0 auto 10px auto;
+        display: block;
+        text-align: center;
+        color: red;
+        -webkit-transition-duration: 0.25s;
+        transition-duration: 0.25s;
+        font-weight: 200;
+        font-family: 'Comic Sans MS';
+    }*/
+
+    form select {
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 5px;
+        width: 230px;
+        background-color: rgba(242, 230, 230, 0.40);
+        color: red;
+        padding: 10px 15px;
+        margin: 0 auto 10px auto;
+        text-align: center;
+        font-family: 'Comic Sans MS';
+    }
+
+    form .signup {
+        width: 120px;
+        text-align: center;
+        font-family: 'Comic Sans MS';
+        color: #25aae1;
+        -webkit-transition-duration: 0.20s;
+    }
+
+div #lefting {
+    width: 450px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+}
+
+div #righting {
+    width: 450px;
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+}
+
+div.img {
+    border-radius: 10px;
+}

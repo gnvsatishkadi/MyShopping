@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>HomeLanding</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .btn-toolbar {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row" ng-controller="HomePageCtrl">
+        <div class="col-md-12">
+            <div class="bs-example">
+                <div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <div class="carousel-inner">
+                        <div class="active item">
+                            <h2 style="color: #0094ff;">Welcome to MyShopping World</h2>
+                            <div class="carousel-caption">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="../Images/Mencloth.jpg" width="120" height="120" class="img-circle" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="../Images/Womancloth.jpg" width="120" height="120" class="img-circle" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="../Images/Kitchen.jpg" width="120" height="120" class="img-circle" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="../Images/Books.jpg" width="120" height="120" class="img-circle" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h2>Slide 2</h2>
+                            <div class="carousel-caption">
+                                <h3>Second slide label</h3>
+                                <p>Aliquam sit amet gravida nibh, facilisis gravida odio.</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <h2>Slide 3</h2>
+                            <div class="carousel-caption">
+                                <h3>Third slide label</h3>
+                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Carousel controls -->
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

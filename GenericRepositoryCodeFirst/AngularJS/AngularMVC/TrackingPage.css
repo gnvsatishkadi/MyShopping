@@ -1,0 +1,356 @@
+﻿.MainTrackOrderDiv {
+    background-color: #fffcfc;
+    border: 1px solid #07b2b2;
+    padding: 10px;
+    margin: 5px;
+    color: #706e6e;
+    font-family: Verdana;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.TrackOrdeThank {
+    color: #0094ff;
+    font-family: Verdana;
+    font-size: 12px;
+    padding: 10px;
+    border: 1px solid #808080;
+    border-radius: 2px;
+}
+
+.TrackBold {
+    color: #07b2b2;
+    font-size: 14px;
+}
+
+.TrackBoldSuccess {
+    color: #25ca05;
+    font-size: 14px;
+}
+
+.TrackDivGap {
+    height: 15px;
+}
+
+.ThankyouRow {
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.leftBorder {
+    border-left: 1px solid #07b2b2;
+    padding: 5px;
+}
+
+.OrderoptionsDiv {
+    color: white;
+    font-family: verdhana;
+    font-size: 15px;
+    padding: 12px;
+    background-color: #72c3fe;
+    border-radius: 3px;
+}
+
+.OrderProcessDiv {
+    color: #07b2b2;
+    font-family: verdhana;
+    font-size: 15px;
+    padding: 16px;
+}
+
+.MyOrderBtn {
+    background-color: #07b2b2;
+    color: white;
+    padding: 5px;
+    border: 1px solid #07b2b2;
+    border-radius: 5px;
+}
+
+.span {
+    color: #808080;
+    font-size: 14px;
+    font-family: Verdana;
+}
+
+.SummeryDiv {
+    background-color: #fffcfc;
+    border: 1px solid #07b2b2;
+    padding: 10px;
+    margin: 5px;
+    color: #706e6e;
+    font-family: Verdana;
+    font-size: 12px;
+    border-radius: 10px;
+}
+
+.informationParaSmall {
+    font-family: Verdana;
+    font-size: 11px;
+    color: #07b2b2;
+}
+
+.informationParaMedium {
+    font-family: Verdana;
+    font-size: 13px;
+    color: #07b2b2;
+}
+
+.informationParaBig {
+    font-family: Verdana;
+    font-size: 12px;
+    color: #706e6e;
+}
+
+.index {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #07b2b2;
+    color: white;
+    background-color: #07b2b2;
+    padding: 7px;
+    border-radius: 25px;
+}
+
+.MyOrderDiv {
+    background-color: #fffcfc;
+    border: 1px solid #07b2b2;
+    color: #706e6e;
+    font-family: Verdana;
+    font-size: 12px;
+    border-radius: 5px;
+}
+
+.IdClass {
+    color: white;
+    background-color: #07b2b2;
+    font-family: Verdana;
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.OrderShowHeadDiv {
+    background-color: #73bcfa;
+    border-radius: 2px;
+    border: 1px solid #07b2b2;
+}
+
+.OrderShowBodyDiv {
+    background-color: #cee3f5;
+    border-radius: 2px;
+    border: 1px solid #07b2b2;
+}
+
+.Orderindex {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #07b2b2;
+    color: white;
+    background-color: #07b2b2;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.Myorderimg {
+    border: 1px solid #eeecec;
+    border-radius: 3px;
+    box-shadow: 5px 5px 20px #089696;
+}
+
+.OrderBodyBold {
+    color: white;
+    font-size: 12px;
+    font-family: verdhana;
+}
+
+.OrderBodyBolds {
+    color: #07b2b2;
+    font-size: 12px;
+}
+
+.ShadeTODiv {
+    box-shadow: 5px 5px 5px #089696;
+}
+
+.TrackLiveOrderHead {
+    /*background-color: #cee3f5;*/
+    background-color: #72c3fe;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px #8594A3;
+    padding: 10px;
+    color: white;
+}
+
+
+.TrackLiveOrderBody {
+    border: 1px solid #cee3f5;
+    color: #535252;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 2px 2px 2px #8594A3;
+}
+
+.TrackLiveOrderGap {
+    height: 15px;
+}
+
+.LeftBorder {
+    border-left: 1px solid #cee3f5;
+}
+
+.rowgap {
+    height: 15px;
+}
+
+.Smallfont {
+    font-family: verdhana;
+    font-size: 14px;
+    color: black;
+}
+
+.Bigfont {
+    font-family: verdhana;
+    font-size: 15px;
+    color: black;
+}
+
+.TrackHeadingd {
+    color: #07b2b2;
+    font-family: verdhana;
+    font-size: 15px;
+}
+
+.TrackOrderSuccessfunc {
+    width: 16px;
+    height: 16px;
+    color: white;
+    background-color: #25ca05;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+    .TrackOrderSuccessfunc:hover {
+        width: 18px;
+        height: 18px;
+        background-color: #08b99e;
+    }
+
+.TrackOrderFailurefunc {
+    width: 16px;
+    height: 16px;
+    color: white;
+    background-color: red;
+    border-radius: 25px;
+    cursor: wait;
+}
+
+.popupHeadSmallfont {
+    color: #25ca05;
+    font-family: Verdana;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.popupBodySmallfont {
+    color: #07b2b2;
+    font-family: Verdana;
+    font-size: 9px;
+    padding: 5px;
+}
+
+.popupBodySmallfont1 {
+    color: #706e6e;
+    font-family: Verdana;
+    font-size: 9px;
+    padding: 5px;
+}
+
+.approvedPopUp {
+    border: 1px solid #07b2b2;
+    border-radius: 2px;
+    position: absolute;
+}
+
+.ProfileMainDiv {
+    background-color: white;
+}
+
+.ProfileCenterDiv {
+    background-color: #d5dbe1;
+}
+
+
+.MenuBtnClass {
+    background-color: #07b2b2;
+    color: white;
+    font-family: Verdana;
+    font-size: 12px;
+    border: 1px solid #d5cfcf;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 130px;
+}
+
+.MenuBtnRow {
+    padding: 10px;
+}
+
+.ProfilePic {
+    width: 120px;
+    height: 120px;
+    border-radius: 100px;
+}
+
+.ProfileLeft {
+    background-color: #07b2b2;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.Profilefont {
+    font-family: Verdana;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.ChangedProfilefont {
+    font-family: Verdana;
+    color: #07b2b2;
+    font-size: 12px;
+}
+
+.ChangedProfilefontBig {
+    font-family: Verdana;
+    color: white;
+    font-size: 14px;
+}
+
+.profileinputctrls {
+    border: 1px solid #808080;
+    border-radius: 3px;
+    width: 200px;
+    height: 35px;
+    background-color: white;
+    font-family: Verdana;
+    font-size: 12px;
+    text-align: left;
+    padding: 2px;
+}
+
+.profileimgs {
+    border: 1px solid #fffcfc;
+    border-radius: 25px;
+    box-shadow: 2px 2px 2px #07b2b2;
+    cursor: pointer;
+}
+
+.TrackNotefont {
+    color: #f22525;
+    font-family: verdhana;
+    font-size: 12px;
+    text-decoration: none;
+}

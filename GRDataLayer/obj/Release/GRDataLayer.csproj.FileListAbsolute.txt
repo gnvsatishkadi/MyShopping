@@ -1,0 +1,12 @@
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\GRDataLayer.dll.config
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\GRDataLayer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\GRDataLayer.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\EntityFramework.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\EntityFramework.SqlServer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\GRDataModel.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\GRDataModel.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\EntityFramework.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Release\EntityFramework.SqlServer.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\obj\Release\GRDataLayer.csprojResolveAssemblyReference.cache
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\obj\Release\GRDataLayer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\obj\Release\GRDataLayer.pdb

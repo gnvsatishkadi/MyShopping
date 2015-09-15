@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TrackOrder</title>
+</head>
+<body>
+    <div ng-controller="TrackOrderHistoryCtrl">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row" ng-repeat="item in TrackOrderHistoryData">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="row TrackLiveOrderHead">
+                                    <div class="col-md-12">
+                                        Order and Delivery Details
+                                    </div>
+                                </div>
+                                <div class="row TrackLiveOrderBody">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <b class="TrackBold">Order Details</b>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <p class="informationParaMedium">OrderId </p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="informationParaBig">{{item.POId}}</p>
+                                            </div>
+                                            <p class="rowgap"></p>
+                                            <div class="col-md-4">
+                                                <p class="informationParaMedium">Seller</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="informationParaBig">{{item.POShippingVia}}</p>
+                                            </div>
+                                            <p class="rowgap"></p>
+                                            <div class="col-md-4">
+                                                <p class="informationParaMedium">Order Date</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="informationParaBig">{{changeDateFormate(item.PODate,item.POTime)}}</p>
+                                            </div>
+                                            <p class="rowgap"></p>
+                                            <div class="col-md-4">
+                                                <p class="informationParaMedium">Delivery In</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="informationParaBig">{{changeDateFormate(item.PODeliveryDate,item.POTime)}}</p>
+                                            </div>
+                                            <p class="rowgap"></p>
+                                            <div class="col-md-4">
+                                                <p class="informationParaMedium">Amount</p>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <p class="informationParaBig">Rs:&nbsp;{{item.POAmount}}</p>
+                                            </div>
+                                            <p class="rowgap"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 LeftBorder">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <b class="TrackBold">Delivery Address</b>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="informationParaBig"><b>{{item.ReceiverName}}</b> &nbsp;{{item.MobileNumber}}</p>
+
+                                                <p class="informationParaBig">{{item.PrimaryAddress}}</p>
+
+                                                <p class="informationParaBig">{{item.Area}}</p>
+
+                                                <p class="informationParaBig">{{item.District}}</p>
+
+                                                <p class="informationParaBig">{{item.PinCode}}</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row TrackLiveOrderGap">
+                                    <div class="col-md-12"></div>
+                                </div>
+                                <div class="row TrackLiveOrderHead">
+                                    <div class="col-md-12">
+                                        Manage Order
+                                    </div>
+                                </div>
+                                <div class="row TrackLiveOrderBody">
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-4">
+                                                <img src="../Images/Printer.png" width="65" height="45" />
+                                            </div>
+                                            <div class="col-md-8 col-md-offset-4 LeftBorder">
+                                                <p class="informationParaSmall">Print Order</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-4">
+                                                <img src="../Images/Invoice.jpg" width="65" height="45" />
+                                            </div>
+                                            <div class="col-md-8 col-md-offset-4 LeftBorder">
+                                                <p class="informationParaSmall">Email Invoice</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-4">
+                                                <img src="../Images/Call.jpg" width="65" height="45" />
+                                            </div>
+                                            <div class="col-md-8 col-md-offset-4 LeftBorder">
+                                                <p class="informationParaSmall">Contact Us</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row TrackLiveOrderGap">
+                                    <div class="col-md-12"></div>
+                                </div>
+                                <div class="row TrackLiveOrderHead">
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="12">
+                                                Product Details
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="row">
+                                            <div class="col-md-3 LeftBorder">Approval</div>
+                                            <div class="col-md-3 LeftBorder">Processing</div>
+                                            <div class="col-md-3 LeftBorder">Shipping</div>
+                                            <div class="col-md-3 LeftBorder">Delivery</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row TrackLiveOrderBody">
+                                    <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="12">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <img class="Myorderimg" src="{{item.FilePath}}{{item.FileName}}" width="100" height="110" />
+                                                    </div>
+                                                </div>
+                                                <p class="rowgap"></p>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <p class="informationParaSmall">{{item.ProductDescription}}</p>
+                                                        <br />
+                                                        <p class="informationParaSmall">ID:&nbsp;{{item.POItemId}}</p>
+                                                    </div>
+                                                </div>
+                                                <p class="rowgap"></p>
+                                                <div class="row">
+                                                    <div class="col-md-4 col-md-offset-2">
+                                                        <button type="button">Return</button>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <button type="button">Review</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="rowgap"></p>
+                                        <div class="row">
+                                            <div class="col-md-3 LeftBorder">
+                                                <div class="row">
+                                                    <div class="col-md-8 col-md-offset-4">
+                                                        <div class="TrackOrderSuccessfunc" ng-mouseenter="Approved(item.POId,item.POItemId,'Placed')" ng-mouseleave="HideStatusDiv()"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 LeftBorder">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="TrackOrderSuccessfunc" ng-mouseenter="Approved(item.POId,item.POItemId,'Confirmed')" ng-mouseleave="HideStatusDiv()"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="TrackOrderSuccessfunc" ng-mouseenter="Approved(item.POId,item.POItemId,'Packed')" ng-mouseleave="HideStatusDiv()"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="TrackOrderSuccessfunc" ng-mouseenter="Approved(item.POId,item.POItemId,'Dispatched')" ng-mouseleave="HideStatusDiv()"></div>
+                                                        <!--popover-template="Approval.templateUrl"-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 LeftBorder">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="TrackOrderSuccessfunc" ng-mouseenter="Approved(item.POId,item.POItemId,'InGoods')" ng-mouseleave="HideStatusDiv()"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="TrackOrderSuccessfunc" ng-mouseenter="Approved(item.POId,item.POItemId,'NearToYou')" ng-mouseleave="HideStatusDiv()"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="TrackOrderSuccessfunc" ng-mouseenter="Approved(item.POId,item.POItemId,'Delivered')" ng-mouseleave="HideStatusDiv()"></div>
+                                                        <!--popover-template="Approval.templateUrl"-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 LeftBorder">
+                                            </div>
+                                        </div>
+                                        <p class="rowgap"></p>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="row" ng-show="StatusDisplayDiv">
+                                                    <div class="col-md-9 approvedPopUp">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <p class="popupHeadSmallfont">{{Approval.StatusMsg}}&nbsp;</p>
+                                                                <p class="popupBodySmallfont1">{{Approval.ShipBy}}&nbsp;{{Approval.ShippingItemId}} &nbsp;{{Approval.DeliveryArea}}</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <p class="popupBodySmallfont1">{{Approval.dateinfo|DateTimeFormate}}</p>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <p class="popupBodySmallfont1 leftBorder">{{Approval.timeinfo}}</p>
+                                                            </div>
+                                                            <div class="col-md-7">
+                                                                <p class="popupBodySmallfont1 leftBorder">{{Approval.Statusinfo}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

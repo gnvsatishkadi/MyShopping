@@ -1,0 +1,24 @@
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataLayer.dll.config
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataLayer.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataLayer.pdb
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataModel.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataModel.pdb
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.xml
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\obj\Debug\GRDataLayer.csprojResolveAssemblyReference.cache
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\obj\Debug\GRDataLayer.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataLayer\obj\Debug\GRDataLayer.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataLayer.dll.config
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataLayer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataLayer.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataModel.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\GRDataModel.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\obj\Debug\GRDataLayer.csprojResolveAssemblyReference.cache
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\obj\Debug\GRDataLayer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataLayer\obj\Debug\GRDataLayer.pdb

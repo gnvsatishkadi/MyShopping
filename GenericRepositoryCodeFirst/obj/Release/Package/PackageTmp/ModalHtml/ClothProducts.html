@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cloth Products</title>
+</head>
+<body>
+    <div ng-controller="ClothProductCtrl">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row marginrow">
+                    <div class="col-md-3">
+                        <div id="ClothSizeSearch">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <label>Size</label>
+                                            <div class="right-inner-addon">
+                                                <i class="icon-search"></i>
+                                                <input type="search"
+                                                    class="form-control"
+                                                    placeholder="Search Size" ng-model="FilterSize" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="div-search-items">
+                                                <li ng-repeat="S in getSizes() | filter:FilterSize">
+                                                    <input type="checkbox" ng-model="filter[S]" />
+                                                    {{S}}
+                                                </li>
+                                            </ul>
+                                            <!--<ul class="div-search-items" ng-repeat="S in ClothSizeContent | filter:FilterSize">
+                                                <li class="btn btn-default">
+                                                    <input type="checkbox" ng-model="ClothSize" />{{S.Size}}</li>
+                                            </ul>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ClothBrandSearch">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <label>Brand</label>
+                                            <div class="right-inner-addon">
+                                                <i class="icon-search"></i>
+                                                <input type="search"
+                                                    class="form-control"
+                                                    placeholder="Search Brand" ng-model="FilterBrand" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="div-search-items">
+                                                <ul>
+                                                    <li ng-repeat="B in getBrand() | filter:FilterBrand">
+                                                        <input type="checkbox" ng-model="filter[B]" />
+                                                        {{B}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ClothNecktypeSearch">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <label>NeckType</label>
+                                            <div class="right-inner-addon">
+                                                <i class="icon-search"></i>
+                                                <input type="search"
+                                                    class="form-control"
+                                                    placeholder="Search Cloth" ng-model="FilterNecktype" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="div-search-items">
+                                                <ul>
+                                                    <li ng-repeat="ntype in getNeckType() | filter:FilterNecktype">
+                                                        <input type="checkbox" ng-model="filter[ntype]" />
+                                                        {{ntype}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ClothSleevesSearch">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <label>Sleeves</label>
+                                            <div class="right-inner-addon">
+                                                <i class="icon-search"></i>
+                                                <input type="search"
+                                                    class="form-control"
+                                                    placeholder="Search Sleeves" ng-model="FilterSleeves" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="div-search-items">
+                                                <ul>
+                                                    <li ng-repeat="sleev in getSleeves() | filter:FilterSleeves">
+
+                                                        <input type="checkbox" ng-model="filter[sleev]" />
+                                                        {{sleev}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="ClothFitSearch">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <label>Fit</label>
+                                            <div class="right-inner-addon">
+                                                <i class="icon-search"></i>
+                                                <input type="search"
+                                                    class="form-control"
+                                                    placeholder="Search Fit" ng-model="FilterFit" />
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="div-search-items">
+                                                <ul>
+                                                    <li ng-repeat="fit in getFit() | filter:FilterFit">
+                                                        <input type="checkbox" ng-model="filter[fit]" />
+                                                        {{fit}}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-8">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn active btn-default">
+                                        <input name="cssPre1" id="F1" value="New" type="radio" data-ng-model="cssPre">New
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input name="cssPre1" id="F2" value="Popular" type="radio" data-ng-model="cssPre">Popular
+                                    </label>
+                                    <label class="btn btn-default">
+                                        <input name="cssPre1" id="F3" value="SASS" type="radio" data-ng-model="cssPre">Price
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-4" ng-repeat="DB in DashboardClothDetails | filter:S:B" style="padding: 10px; border-radius: 2px; margin: 10px; width: 200px; background-color: #fff;">
+                                    <div ng-disabled="DB.Status=='N'">
+                                        <a ng-href="#/Shop/ProductSelected/{{DB.ItemId}}">
+                                            <div class="imgDashboard" style="padding: 10px; width: 180px; height: 300px;">
+                                                <img src="{{DB.FilePath}}{{DB.FileName}}" width="160" height="210" style="padding: 5px;" /><br />
+                                                <h6 style="color: black; font-family: Calibri; font-size: 14px;">{{DB.Brand}} {{DB.Color}} Cotton</h6>
+                                                <br />
+                                                Rs:<label>{{DB.AfterDiscountCost}}</label>
+                                                <strike ng-show="DB.ProductCost>DB.AfterDiscountCost">{{DB.ProductCost}}</strike>
+                                                <label ng-show="DB.ProductCost>DB.AfterDiscountCost">{{DB.DiscountPercent}}%</label>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

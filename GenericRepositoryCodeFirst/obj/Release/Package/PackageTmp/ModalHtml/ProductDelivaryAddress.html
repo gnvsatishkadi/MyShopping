@@ -1,0 +1,823 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ProductDelivaryAddress</title>
+    <script src="../AngularJS/AngularMVC/jquery.min.js"></script>
+    <script src="../AngularJS/AngularMVC/jquery.ui.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".DelivaryCheckDone").click(function () {
+                // Set the effect type
+                var effect = 'slide';
+                // Set the options for the effect type chosen
+                var options = {
+                    direction: 'right'
+                };
+                var duration = 600;
+                //$('#myDiv').toggle(500);
+                $('#myDiv').toggle(effect, options, duration);
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        #myDiv {
+            display: none;
+            position: relative;
+            float: right;
+            width: 320px;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="ProductDelivaryAddressCtrl">
+        <div class="ProductDescDiv">
+            <div class="DelivaryHead1">
+                <div class="row ">
+                    <div class="col-md-5">
+                        Address Must be Related to delivery Location.
+                            <br />
+                        <p></p>
+                        All the Items Delivered to the Address , which you given Below.
+                            <br />
+                        <p></p>
+                        Shipping Charges May vary depending upon delivery Location.
+                    </div>
+                    <div class="col-md-5 ">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a ng-hide="AuthenticationPassed" style="pointer-events: none" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a ng-hide="ShowYourDelivaryAddress" style="pointer-events: none" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></a>
+                            </div>
+                            <div class="col-md-4">
+                                <a ng-show="ConfirmAddressBtn == 'Yes'" style="pointer-events: none" class="btn btn-default btn-circle btn-lg"><i class="glyphicon glyphicon-ok"></i></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">Authenticated</div>
+                            <div class="col-md-4">Delivery Avail</div>
+                            <div class="col-md-4">Payment</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 ">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="#/Shop/Cart" class="DeliverBtnsSignin" ng-show="HideNoItemsInCartDiv">
+                                    <span class="glyphicon glyphicon-shopping-cart "></span>&nbsp;Back To Cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+            <div class="row" ng-init="accordion=1" ng-show="HideNoItemsInCartDiv">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row" ng-hide="AuthenticationPassed">
+                                        <div class="col-md-12">
+                                            <div class="DivPassed">
+                                                <span class="glyphicon glyphicon-user"></span>&nbsp;Authentication Passed
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" ng-show="AuthenticationDivison">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="CheckoutHeadings" ng-class="{active:accordion==1}" ng-click="accordion = 1">
+                                                        <div class="row">
+                                                            <div class="col-md-8">1 .Authentication</div>
+                                                            <div class="col-md-1 col-md-offset-3">
+                                                                <span class="glyphicon glyphicon-user"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="CheckoutBody" ng-show="accordion==1">
+                                                        <div class="row" ng-hide="HideExistLogin" ng-show="ShowExisLogin">
+                                                            <div class="col-md-6 col-md-offset-1">
+                                                                <form name="ExistingCustomer" ng-submit="ReturningCustomer(ExistingCustomer)">
+                                                                    <h5><b style="color: #07b98d;">Returning Customer</b></h5>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Email/Mobile</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="text" class="DelivaryCheckUser" ng-model="Del.EmailLogin" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Password</td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="password" class="DelivaryCheckUser" ng-model="Del.PasswordLogin" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td style="color: #07b98d;"><a class="ForgetPass" ng-click="ShowHideAuthenticationDiv('ForgetPass')">&nbsp;Forget Your Password?</a></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <button type="submit" class="DeliverBtnsSignin"><span class="glyphicon  glyphicon-log-in"></span>&nbsp;Sign In</button>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <b style="color: #f00;">{{LoginFailMsg}}</b>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="col-md-5" style="border-left: 1px solid green;">
+                                                                <h5><b style="color: #07b98d;">New Customer</b></h5>
+                                                                <div class="row">
+                                                                    <div class="col-md-12">
+                                                                        <table>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <ol>Sign up here to create new Acount</ol>
+                                                                                    <ol>
+                                                                                        Verification's will be done on your
+                                                                            Registered Details
+                                                                                    </ol>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <div class="DeliverBtnsSignin" ng-click="ShowHideAuthenticationDiv('NewSignup')"><span class="glyphicon glyphicon-plus-sign"></span>&nbsp;Sign Up</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-md-offset-1" ng-show="ShowNewLogin">
+                                                                <form name="NewCustomer" ng-submit="NewCustomerSignUp(NewCustomer)">
+                                                                    <h5><b style="color: #07b98d;">New Registration</b></h5>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>EmailId</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="text" class="DelivaryCheckUser" ng-model="SignUp.EmailId" placeholder="EmailId" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Mobile</td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="text" maxlength="10" class="DelivaryCheckUser" ng-model="SignUp.Mobile" placeholder="Mobile" numbers-only="numbers-only" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>UserName</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="text" class="DelivaryCheckUser" ng-model="SignUp.Username" placeholder="Username" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Password</td>
+
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="password" class="DelivaryCheckUser" ng-model="SignUp.Password" placeholder="Password" />
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <div class="row">
+                                                                                <div class="col-md-2 col-md-offset-4">
+                                                                                    <button type="submit" class="DeliverBtnsSignin"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Sign In</button>
+                                                                                </div>
+                                                                                <div class="col-md-6">
+                                                                                    <div class="DeliverBtnsCancel" ng-click="ShowHideAuthenticationDiv('CancelSignup')"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Cancel</div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-md-offset-1" ng-show="ShowForgetPass">
+                                                                <form name="ForgetPass" ng-submit="ForgetPassword()">
+                                                                    <h5><b style="color: #07b98d;">Forget Password</b></h5>
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <table>
+                                                                                <tr>
+                                                                                    <td>Email Id</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <input type="text" class="DelivaryCheckUser" ng-model="Del.ForgetPaswordEmail" />
+                                                                                        <div class="DeliverBtnsCancel" ng-click="ShowHideAuthenticationDiv('CancelForget')">Cancel<span class="glyphicon glyphicon-share-alt"></span></div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="CheckoutHeadings" ng-class="{active:accordion==2}" ng-click="accordion = 2">
+                                                <div class="row">
+                                                    <div class="col-md-8">2 .Delivery Address</div>
+                                                    <div class="col-md-1 col-md-offset-3">
+                                                        <span class="glyphicon glyphicon-home"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="CheckoutBody" ng-show="accordion==2">
+                                                <div ng-show="ShowYourDelivaryAddress">
+                                                    <form name="DelivaryAddress" ng-submit="DelivaryAddressForm(DelivaryAddress)">
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-1">
+                                                                <span class="glyphicon glyphicon-pushpin"></span>&nbsp;Pincode:
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" maxlength="6" class="DelivaryCheck" ng-model="Del.PinCode" numbers-only="numbers-only" ng-keyup="CheckDelivaryPincode($event,Del.PinCode)" />
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-1">
+                                                                <span class="glyphicon glyphicon-pushpin"></span>&nbsp;Receiver Name:
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="DelivaryCheck" ng-model="Del.ReceiverName" />
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-1">
+                                                                <span class="glyphicon glyphicon-home"></span>&nbsp;Address:
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="DelivaryCheck" ng-model="Del.Address" />
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-1">
+                                                                <span class="glyphicon glyphicon-map-marker"></span>&nbsp;Area:
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="DelivaryCheck" ng-model="Del.Area" />
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-1">
+                                                                <span class="glyphicon glyphicon-globe"></span>&nbsp;District:
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="DelivaryCheck" ng-model="Del.District" />
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-1">
+                                                                <span class="glyphicon glyphicon-phone"></span>&nbsp;Mobile Numer:
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" maxlength="10" class="DelivaryCheck" ng-model="Del.MobileNumber" numbers-only="numbers-only" />
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-4 col-md-offset-1">
+                                                                <span class="glyphicon glyphicon-phone-alt"></span>&nbsp;Alternat Mobile:
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <input type="text" maxlength="10" class="DelivaryCheck" ng-model="Del.AlterMobileNumber" numbers-only="numbers-only" />
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-8 col-md-offset-4">
+                                                                <button type="submit" class="btn btn-success btn-md" ng-disabled="Del.ConfirmBtn">
+                                                                    <span class="glyphicon glyphicon glyphicon-thumbs-up"></span>&nbsp;Confirm your Address
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                                <div ng-show="ShowPostcardAddress" class="CheckoutBody">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p style="color: #07b98d;"><span class="glyphicon glyphicon-home"></span>&nbsp;Your Delivery Post Card is Look Like This.</p>
+                                                            <div class="FinalAddress">
+                                                                <div class="row">
+                                                                    <div class="col-md-9">
+                                                                        <span class="glyphicon glyphicon-tag"></span>Indian Post Card
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <img src="../Images/stamp.jpg" width="70" height="40" />
+                                                                    </div>
+                                                                </div>
+                                                                <hr />
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        From  <span class="glyphicon glyphicon-upload"></span>
+                                                                        <br />
+                                                                        <br />
+                                                                        <span>MyShopping.com</span><br />
+                                                                        <span>Krishi Sapphire</span><br />
+                                                                        <span>Madhapur</span><br />
+                                                                        <span>Hyderabad</span><br />
+                                                                        <span>500032</span><br />
+                                                                        <span>India</span><br />
+                                                                        <span>mail.2xprime.com</span><br />
+                                                                        <span>+91 40 40327469</span><br />
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <div class="row">
+                                                                            To <span class="glyphicon glyphicon-download"></span>
+                                                                            <br />
+                                                                            <br />
+                                                                            <div class="col-md-12">
+                                                                                {{Del.ReceiverName}}
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                {{Del.Address}}
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                {{Del.Area}}
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                {{Del.District}}
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                {{Del.PinCode}}
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                {{Del.MobileNumber}}
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                {{Del.AlterMobileNumber}}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <hr />
+                                                                <div class="row">
+                                                                    <div class="col-md-9">
+                                                                        <span class="glyphicon glyphicon glyphicon-pencil"></span>&nbsp;Mail to us,if you have any problem.
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <button class="DeliverBtnsSignin" ng-click="EditDelivaryAddress()">
+                                                                            <span class="glyphicon glyphicon glyphicon-pencil">Edit</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p></p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row" ng-click="PaymentGateWayDiv()">
+                                        <div class="col-md-12">
+                                            <div class="CheckoutHeadings" ng-class="{active:accordion==3}" ng-click="accordion = 3">
+                                                <div class="row">
+                                                    <div class="col-md-8">3 .Payment GateWay</div>
+                                                    <div class="col-md-1 col-md-offset-3">
+                                                        <span class="glyphicon glyphicon-send"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" ng-hide="Paymenting">
+                                        <div class="col-md-12">
+                                            <div class="CheckoutBody" ng-show="accordion==3">
+                                                <div class="PaymentDiv">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <div class="PaymentType" ng-class="{PaymentType1:isSelected('DebitCard')}" ng-click="PaymentTypeOver('DebitCard')">
+                                                                Debit Card
+                                                            </div>
+                                                            <div class="PaymentType" ng-class="{PaymentType1:isSelected('CreditCard')}" ng-click="PaymentTypeOver('CreditCard')">
+                                                                Credit Card
+                                                            </div>
+                                                            <div class="PaymentType" ng-class="{PaymentType1:isSelected('NetBanking')}" ng-click="PaymentTypeOver('NetBanking')">
+                                                                Net Banking
+                                                            </div>
+                                                            <div class="PaymentType" ng-class="{PaymentType1:isSelected('PayU')}" ng-click="PaymentTypeOver('PayU')">
+                                                                Pay-U
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="row" ng-show="PaymentDivison=='DebitCard'">
+                                                                <form name="ProductPaymentSubmit" ng-submit="PaymentGateWaySubmission(ProductPaymentSubmit)">
+                                                                    <div class="col-md-12">
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                DebitCard Payment GateWay is Selected...
+                                                                            </div>
+                                                                        </div>
+                                                                        <p></p>
+                                                                        <div class="row">
+                                                                            <div class="col-md-3">
+                                                                                MasterCard
+                                                                            </div>
+                                                                            <div class="col-md-2 col-md-offset-1">
+                                                                                Visa
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                Rupay
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                Maestro
+                                                                            </div>
+                                                                        </div>
+                                                                        <p></p>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <p></p>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4">Name as In Bank</div>
+                                                                                    <div class="col-md-8">
+                                                                                        <input type="text" class="PaymentBigInputctrl" ng-model="Card.HolderName" placeholder="Name" />
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p></p>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4">Card Number</div>
+                                                                                    <div class="col-md-8">
+                                                                                        <input type="text" class="PaymentBigInputctrl" ng-model="Card.CardNumber" maxlength="16" numbers-only="numbers-only" placeholder="Card Number" />
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p></p>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4">
+                                                                                        Cvv
+                                                                                    </div>
+                                                                                    <div class="col-md-8">
+                                                                                        <input type="text" class="PaymentSmallInputctrl" ng-model="Card.CVV" maxlength="3" numbers-only="numbers-only" placeholder="CVV" />
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p></p>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-4">
+                                                                                        Expiry Date
+                                                                                    </div>
+                                                                                    <div class="col-md-2">
+                                                                                        <input type="text" class="PaymentXSmallInputctrl" ng-model="Card.ExpMM" minlength="2" maxlength="2" numbers-only="numbers-only" placeholder="MM" />
+
+                                                                                    </div>
+                                                                                    <div class="col-md-6">
+                                                                                        <input type="text" class="PaymentSmallInputctrl" ng-model="Card.ExpYY" minlength="4" maxlength="4" numbers-only="numbers-only" placeholder="YYYY" />
+                                                                                    </div>
+                                                                                </div>
+                                                                                <p></p>
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6 col-md-offset-6">
+                                                                                        <button type="submit" ng-disabled="NetBankPaymentBtn">Payment Continue</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="row" ng-show="PaymentDivison=='CreditCard'">
+                                                                CreditCard selection
+                                                            </div>
+                                                            <div class="row" ng-show="PaymentDivison=='NetBanking'">
+                                                                NetBanking card selection
+                                                            </div>
+                                                            <div class="row" ng-show="PaymentDivison=='PayU'">
+                                                                PayU selection
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" ng-show="Paymenting">
+                                        <div class="col-md-3 col-md-offset-2">
+                                            <img src="../Images/deliverytype1.jpg" width="100" height="120" />
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="Choose">
+                                                <p></p>
+                                                <b>Please Choose your Delivery Type</b><br />
+                                                by just click <b>Choose</b> button on your Right Side
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12 CheckoutHeadings">
+                                                    <div class="col-md-10">Your Order Details</div>
+                                                    <div class="col-md-2">
+                                                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 CheckoutBody">
+                                                    <div class="col-md-12" ng-repeat="item in CartItems">
+                                                        <div class="CheckoutBodyOrderlist">
+                                                            <div class="row">
+                                                                <div class="col-md-10">
+                                                                    {{item.ProductDescription}}
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <!--<span class="glyphicon glyphicon glyphicon-trash" ng-click="RemoveItem($index)"></span>-->
+                                                                </div>
+                                                            </div>
+                                                            <p></p>
+                                                            <div class="row">
+                                                                <div class="col-md-8">
+                                                                    Total Amount :
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    Rs:{{item.ItemsCost}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                <div class="col-md-12 CheckoutHeadings">
+                                                    <div class="col-md-10">
+                                                        Choose your Delivery Type 
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 CheckoutBody">
+                                                    <div class="row">
+                                                        <div class="col-md-11 col-md-offset-1">
+                                                            <button ng-disabled="ChooseAfterPinbtn" type="button" class="DelivaryCheckDone" id="DelivaryTypebtn">
+                                                                Choose</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row">
+                                        <div class="col-md-12 CheckoutHeadings">
+                                            <div class="col-md-10">
+                                                Amount Board:
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="row CheckoutBody">
+                                                <div class="CheckoutBodyOrderlist">
+                                                    <div class="col-md-8">
+                                                        Order Cost:
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        Rs:&nbsp;{{CartItems|total:'ItemsCost'}}
+                                                    </div>
+                                                    <p class="amountboardgap"></p>
+                                                    <div class="col-md-8">
+                                                        Delivery Charges:
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        Rs:&nbsp;{{DelivaryTypeCost}}
+                                                    </div>
+                                                    <p class="amountboardgap"></p>
+                                                    <div class="col-md-8">
+                                                        Delivery Type:
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        {{DelivaryType}}
+                                                    </div>
+                                                    <p class="amountboardgap"></p>
+                                                    <div class="col-md-8">
+                                                        Shipping Charges
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        Rs:&nbsp;{{ShippingCharges}}
+                                                    </div>
+
+                                                    <p class="amountboardgap"></p>
+                                                    <div class="col-md-8">
+                                                        Delivery Date:
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        {{ApproximateDeliveryDate|date:"dd/MM/yyyy"}}<br />
+                                                    </div>
+                                                    <p class="amountboardgap"></p>
+                                                    <div class="col-md-8"></div>
+                                                    <div class="col-md-4">
+                                                        <b>{{DeliveryDay}}</b>
+                                                    </div>
+                                                    <p class="amountboardgap"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <div class="row FinalAmount">
+                                        <div class="col-md-8">
+                                            Final Amount:
+                                        </div>
+                                        <div class="col-md-4">
+                                            Rs:{{WithDeliveryCharge}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="myDiv">
+                                                <div class="row">
+                                                    <div class="col-md-12 PopHead">
+                                                        Check Your Delivery Type
+                                                    </div>
+                                                    <div class="col-md-12 popBody">
+                                                        <div class="row">
+                                                            <div class="col-md-10 col-md-offset-2 ">
+                                                                <form name="myForm">
+                                                                    <div class="btn-group" data-toggle="buttons">
+                                                                        <label class="btn btn-success" ng-repeat="person in people" ng-click="selectDeliveryType(person)">
+                                                                            <input type="radio" ng-model="$parent.Cost" name="Type" value="{{person.Cost}}" required />{{person.Type}}
+                                                       
+                                                                        </label>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-7">
+                                                                Order Cost:
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                Rs:&nbsp;{{CartItems|total:'ItemsCost'}}
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-7">
+                                                                DeliveryType Cost:
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                Rs:&nbsp;{{DelivaryTypeCost}}
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <b style="color: #ff6a00;">{{DelivaryType}}</b>
+                                                            </div>
+                                                        </div>
+                                                        <p>
+                                                        </p>
+                                                        <div class="row">
+                                                            <div class="col-md-7">
+                                                                Shipping Charges
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                Rs:&nbsp;{{ShippingCharges}}
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-7">
+                                                                Final Amount:
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                Rs:&nbsp;{{WithDeliveryCharge}}
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                        <div class="row">
+                                                            <div class="col-md-7">
+                                                                Delivery Date:
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                {{ApproximateDeliveryDate|date:"dd/MM/yyyy"}}<br />
+                                                                <b>{{DeliveryDay}}</b>
+                                                            </div>
+                                                        </div>
+                                                        <p></p>
+                                                    </div>
+
+                                                    <div class="col-md-12 PopHead">
+                                                        <b>Normal Delivery</b><br />
+                                                        <p></p>
+                                                        We Delivered Your Product With in 5 Working Days.<br />
+                                                        We don't make any Charge to this "Normal" Delivery<br />
+                                                        <hr />
+                                                        <p></p>
+                                                        <b>Speed Delivery</b><br />
+                                                        <p></p>
+                                                        We Delivered Your Product in 2 Working Days.<br />
+                                                        We make Charge to this "Speed" Delivery<br />
+                                                        <hr />
+                                                        <p></p>
+                                                        <b>High Speed Delivery</b><br />
+                                                        <p></p>
+                                                        We Delivered Your Product in 1 Working Day.<br />
+                                                        We make Charge to this "High" Delivery<br />
+                                                    </div>
+
+                                                    <div class="col-md-4 col-md-offset-8">
+                                                        <button type="button" class="DelivaryCheckDone">
+                                                            Close
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p></p>
+            <div class="row" ng-hide="HideNoItemsInCartDiv">
+                <div class="col-md-3 col-md-offset-1">
+                    <img src="../Images/emptycart1.jpg" />
+                </div>
+                <div class="col-md-6" style="color: #07b98d;">
+                    <p></p>
+                    No Item(s) in your Cart right Now.<br />
+                    <p></p>
+                    Please Select Your Items By clicking <b style="color: #3b7fea">Shopping</b> Button.
+                </div>
+                <div class="col-md-2">
+                    <a href="#/" class="DeliverBtnsSignin">
+                        <span class="glyphicon glyphicon-home"></span>&nbsp;Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

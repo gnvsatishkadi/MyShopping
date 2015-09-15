@@ -1,0 +1,333 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ProductCartItems</title>
+
+    <script src="../AngularJS/AngularMVC/jquery.min.js"></script>
+    <script src="../AngularJS/AngularMVC/jquery.ui.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //called when key is pressed in textbox
+            $("#OneToNine").keypress(function (e) {
+                alert('1');
+
+                //if the letter is not digit then display error and don't type anything
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                    //display error message
+                    //$("#errmsg").html("Digits Only").show().fadeOut("slow");
+                    return false;
+                }
+            });
+
+            $('.logout').on('click', function () {
+
+                $('.overlay').css('display', 'block');
+                $('.popup').css('display', 'block').show("slow").delay(3000).hide("slow");
+            });
+
+            $('.login').on('click', function () {
+                $('.overlay').css('display', 'none');
+                $('.popup').css('display', 'none');
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <div ng-controller="ProductCartCtrl">
+
+        <div class="ProductDescDiv">
+            <div class="row">
+                <div class="col-md-9">
+                    <p style="color: #11be84; padding: 10px; font-size: 16px">
+                        You have {{getTotalItems()}} item(s) in your Cart
+                    </p>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-default btn-sm" ng-click="GridView('Grid')">
+                        <span class="glyphicon glyphicon glyphicon-th-large"></span>
+                    </button>
+                    <button class="btn btn-default btn-sm" ng-click="GridView('List')">
+                        <span class="glyphicon glyphicon glyphicon-th-list"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div ng-hide="CartGrid">
+                <p></p>
+                <div class="row" ng-class="Gridding">
+                    <div class="col-md-5">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div>
+                                    <a ng-href="#/" class="ButtonClass">Continue Shopping
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div>
+                                    <a ng-hide="ProductCheckoutBtn" ng-href="#/Shop/DelivaryAddress" class="ButtonClass1">Product Checkout
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div>
+                                    Total Rs :&nbsp;{{CartItems|total:'OrderPlusShipCharhe'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+                <div class="row" ng-class="Gridding">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-2" ng-class="ProductColor">
+                                        <b>Product</b>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="row">
+                                            <div class="col-md-5" ng-class="ProductColor">
+                                            </div>
+                                            <div class="col-md-2" ng-class="ProductColor">
+                                                <b>Shipping</b>
+                                            </div>
+                                            <div class="col-md-1" ng-class="ProductColor">
+                                                <b>Price</b>
+                                            </div>
+                                            <div class="col-md-2" ng-class="ProductColor">
+                                                <b>&nbsp;&nbsp;Qty</b>
+                                            </div>
+                                            <div class="col-md-2" ng-class="ProductColor">
+                                                <b>Sub Total</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12" ng-class="BodyCartitem" ng-repeat="item in CartItems">
+                        <div class="row" style="background-color: #eeeaea; border-radius: 5px; padding: 5px; margin: 5px;">
+                            <div class="col-md-2">
+                                <div>
+                                    <img ng-src="{{item.FilePath}}{{item.FileName}}" width="130" height="150" style="border-radius: 5px;" />
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-12" ng-class="ProductColor">
+                                                {{item.ProductDescription}}
+                                            <span class="glyphicon glyphicon glyphicon-trash" ng-click="RemoveItem($index)"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-5">
+
+                                                <p style="height: 10px;"></p>
+                                                <div class="row" style="padding: 15px; background-color: #11be84; color: white; border: 1px solid #11be84; border-radius: 2px;">
+                                                    <div class="col-md-8">Product Id:</></div>
+                                                    <div class="col-md-4">{{item.ItemId}}</div>
+                                                    <p></p>
+                                                    <div class="col-md-8">Product Cost</></div>
+                                                    <div class="col-md-4">Rs:&nbsp;{{item.ItemCost}}</div>
+                                                    <p></p>
+                                                    <div class="col-md-8">Delivery By</div>
+                                                    <div class="col-md-4">{{item.Seller}}</div>
+                                                    <p></p>
+                                                    <div class="col-md-8">Shipping Charges</div>
+                                                    <div class="col-md-4">Rs:&nbsp;{{item.ShippingCharges}}</div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-3" ng-class="ProductColor">
+                                                            Rs:&nbsp;{{item.TotalShipCharge}}
+                                                        </div>
+                                                        <div class="col-md-3" ng-class="ProductColor">
+                                                            Rs:&nbsp;{{item.ItemsCost}}
+                                                        </div>
+                                                        <div class="col-md-2" ng-init="item.Value = 1">
+                                                            <!--<input class="QuantytyTextBox" minlength="1" maxlength="2" type="text" ng-model="item.Value" ng-keyup="change(item.Value , $index)" numbers-only="numbers-only" />-->
+                                                            <input class="QuantytyTextBox" minlength="1" maxlength="2" type="text" ng-model="item.Value" ng-keyup="change(item.Value ,item.ShippingCharges, item.ItemId, $index)" numbers-only="numbers-only" /><br />
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <b class="OutofStockMsg">{{item.WantedItemsCount}}</b>
+                                                        </div>
+                                                        <div class="col-md-3" ng-class="ProductColor">
+                                                            Rs:&nbsp;{{item.OrderPlusShipCharhe}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <p style="height: 15px;"></p>
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <div class="OutofStockMsg" ng-show="item.Value > item.ProductCount">{{WarningProductAvailableMsg}}</div>
+                                                        <b class="OutofStockMsg">{{item.OutofStockMsg}}</b>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="row" ng-class="Gridding">
+                    <div class="col-md-5">
+                        <p class="ProductDescLabel">
+                            You have {{getTotalItems()}} items in your Cart
+                        </p>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div>
+                                    <a ng-href="#/" class="ButtonClass">Continue Shopping
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div>
+                                    <a ng-hide="ProductCheckoutBtn" ng-href="#/Shop/DelivaryAddress" class="ButtonClass1">Product Checkout
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div>
+                                    Total Rs :&nbsp;{{CartItems|total:'OrderPlusShipCharhe'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-show="CartGrid">
+                <p></p>
+                <div class="row" ng-class="Gridding">
+                    <div class="col-md-7">
+                        <p class="ProductDescLabel">
+                            You have {{getTotalItems()}} items in your Cart
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div>
+                                    <a ng-href="#/" class="ButtonClass">Continue Shopping
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div>
+                                    <a ng-href="#/Shop/DelivaryAddress" class="ButtonClass1">Product Checkout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p></p>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row" id="ProdCartItemDiv">
+                            <div class="col-md-5" ng-repeat="item in CartItems" style="padding: 5px; margin: 10px; border: 1px solid #808080; border-radius: 3px; background-color: #fff">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div>
+                                            <img ng-src="{{item.FilePath}}" width="100" height="150" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <p class="ProductDescLabel">Prod Cost:</p>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <p class="ProductDescLabel">{{item.ItemCost}}Rs</p>
+                                            </div>
+                                        </div>
+                                        <p></p>
+
+                                        <div class="row">
+                                            <div class="col-md-7">
+                                                <p class="ProductDescLabel">Deliv Date:</p>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <p class="ProductDescLabel">{{item.ExpDelDate}}</p>
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-danger btn-sm" ng-click="RemoveItem($index)">
+                                                    <span class="glyphicon glyphicon glyphicon-trash"></span>Remove Item
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <p></p>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <!-- <select ng-model="item.Value" ng-change="change(item.Value , $index)">
+                                            <option ng-repeat="item in ItemsCount"
+                                                ng-selected="{{ item.Selected == true }}">{{item.Value}}
+                                            </option>
+                                        </select>-->
+                                        <input class="QuantytyTextBox" minlength="1" maxlength="2" type="text" ng-model="item.Value" ng-keyup="change(item.Value , $index)" numbers-only="numbers-only" />
+                                        {{item.Value}}
+                                    </div>
+                                    <div class="col-md-7">
+                                        <label>Amount :{{item.ItemsCost}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <img src="Images/c1.jpg" width="160px" height="160px" alt="Items in Cart" />
+                            </div>
+                        </div>
+                        <p>
+                        </p>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-2">
+                                <div class="ButtonClass">
+                                    Total Rs :&nbsp;{{CartItems|total:'OrderPlusShipCharhe'}}
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+                <div class="row" ng-class="Gridding">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

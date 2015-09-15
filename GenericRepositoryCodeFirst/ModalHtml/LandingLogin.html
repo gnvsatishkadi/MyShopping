@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div ng-controller="LandingLoginCtrl">
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 LandingHead">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="#/">
+                            <img src="../Images/shop1.png" width="150" height="80" />
+                        </a>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p style="height: 20px;"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-8">
+                                <a class="LandingPageBtns">
+                                    <span class="glyphicon glyphicon-download"></span>&nbsp;Download App</a>
+                                &nbsp;&nbsp;
+                                <a class="LandingPageBtns">
+                                    <span class="glyphicon glyphicon-user"></span>&nbsp;Help</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row" ng-show="ShowSignInMenu">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-9 col-md-offset-3">
+                                <p class="loginmenunotice">You can Signin by using below Category's or <b style="color: #0aa47e; cursor: pointer" ng-click="GmailSignUplinkClick()">Signup</b></p>
+                            </div>
+                        </div>
+                        <div class="row LoginDivsMenu">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="facebooklogin">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <img src="../Images/facebook.jpg" class="loginimgs" />
+                                                </div>
+                                            </div>
+                                            <p class="loginmenufont">Facebook signin</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="googlelogin">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <img src="../Images/googleplus.png" class="loginimgs" />
+                                                </div>
+                                            </div>
+                                            <p class="loginmenufont">Google+ singin</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="gmaillogin" ng-click="GmailSignInDivClick()">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <img src="../Images/gmailicon.jpg" class="loginimgs" />
+                                                </div>
+                                            </div>
+                                            <p class="loginmenufont">Gmail signin</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" ng-show="ShowSignUpMenu">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-9 col-md-offset-3">
+                                <p class="loginmenunotice">You can Signup by using below Category's or <b style="color: #0aa47e; cursor: pointer" ng-click="BacktoLoginmenu()">Signin</b></p>
+                            </div>
+                        </div>
+                        <div class="row LoginDivsMenu">
+                            <div class="col-md-3">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="facebooklogin">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <img src="../Images/facebook.jpg" class="loginimgs" />
+                                                </div>
+                                            </div>
+                                            <p class="loginmenufont">Facebook signup</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="googlelogin">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <img src="../Images/googleplus.png" class="loginimgs" />
+                                                </div>
+                                            </div>
+                                            <p class="loginmenufont">Google+ singup</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="gmaillogin" ng-click="GmailSignUpDivClick()">
+                                            <div class="row">
+                                                <div class="col-md-10 col-md-offset-2">
+                                                    <img src="../Images/gmailicon.jpg" class="loginimgs" />
+                                                </div>
+                                            </div>
+                                            <p class="loginmenufont">Gmail signup</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12" ng-show="GmailSignupFormShow">
+
+                                <form name="NewCustomer" ng-submit="NewCustomerSignUp(NewCustomer)">
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11">
+                                            <span class="logoheading">MyShopping</span><p class="logotexthead">Signup form</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7 col-md-offset-5">
+                                            <p class="LoginErrfont" ng-show="LoginErrImg">{{AlreadyUserAvaiMsg}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1">
+                                            <span class="glyphicon glyphicon-chevron-left backspanbtn" ng-click="Backtosignupmenu()"></span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="gmaillogin">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <img src="../Images/gmailicon.jpg" class="loginimgs" />
+                                                    </div>
+                                                </div>
+                                                <p class="loginmenufont">Gmail signup</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-envelope"></span>
+                                                    </span>
+                                                    <input class="LandCtrls" type="text" ng-model="SignUp.EmailId" placeholder="EmailId" /><br />
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 Gap">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-phone"></span>
+                                                    </span>
+                                                    <input class="LandCtrls" type="text" ng-model="SignUp.Mobile" maxlength="10" numbers-only="numbers-only" placeholder="Mobile" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 Gap"></div>
+                                            <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-user"></span>
+                                                    </span>
+                                                    <input class="LandCtrls" type="text" ng-model="SignUp.Username" placeholder="Username" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 Gap"></div>
+                                            <div class="col-md-12">
+                                                <div class="input-group">
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </span>
+                                                    <input class="LandCtrls" type="password" ng-model="SignUp.Password" placeholder="Password" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-9">
+                                            <button type="submit" class="loginbtns">Submit</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <b>{{SignUpErrMsg}}</b>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="col-md-12" ng-show="GmailSigninFormShow">
+                                <form name="ExistingCustomer" ng-submit="ReturningCustomer(ExistingCustomer)">
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-11">
+                                            <span class="logoheading">MyShopping</span><p class="logotexthead">Signin form</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-1"></div>
+                                        <div class="col-md-1">
+                                            <span class="glyphicon glyphicon-chevron-left backspanbtn" ng-click="BacktoLoginmenu()"></span>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="gmaillogin">
+                                                <div class="row">
+                                                    <div class="col-md-10 col-md-offset-2">
+                                                        <img src="../Images/gmailicon.jpg" class="loginimgs" />
+                                                    </div>
+                                                </div>
+                                                <p class="loginmenufont">Gmail signin</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-envelope"></span>
+                                                        </span>
+                                                        <input class="LandCtrls" type="text" ng-model="Landing.EmailId" placeholder="Enter Your EmailId" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 Gap"></div>
+                                                <div class="col-md-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-pencil"></span>
+                                                        </span>
+                                                        <input class="LandCtrls" type="Password" ng-model="Landing.Password" placeholder="Enter your Password" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 Gap"></div>
+                                                <div class="col-md-12">
+                                                    <span class="glyphicon glyphicon-pencil"></span>&nbsp;<a class="ForgetPass">Forget your Password?</a>
+                                                </div>
+                                                <div class="col-md-12 Gap"></div>
+                                                <div class="col-md-12">
+                                                    <span class="glyphicon glyphicon-user"></span>&nbsp;<a class="ForgetPass" ng-click="GmailSignUplinkClick()">Create New account</a>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-2 col-md-offset-6">
+                                                    <button type="submit" class="loginbtns">Signin</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-10 col-md-offset-2">
+                                            <p class="LoginErrfont" ng-show="LoginErrImg">{{LoginFailed}}</p>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</body>
+</html>

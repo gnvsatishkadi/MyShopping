@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TrackOrder</title>
+</head>
+<body>
+    <div ng-controller="MyOrdersCtrl">
+        <div class="MyOrderDiv">
+            <div ng-show="MyOrdersDiv">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        Recent Orders
+                                    </div>
+                                    <div class="col-md-4">Past Orders</div>
+                                    <div class="col-md-4">Total :&nbsp;{{MyOrdersPurchaseOrderDetails.length}}&nbsp; item(s)</div>
+                                </div>
+                                <p class="TrackDivGap"></p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row" ng-repeat="item in MyOrdersPurchaseOrderDetails">
+                                            <div class="col-md-12 ShadeTODiv">
+                                                <div class="row OrderShowHeadDiv">
+                                                    <div class="col-md-3 IdClass">
+                                                        <a href="#/Shop/TrackOrderHistory/{{item.POId}}/{{item.POItemId}}">
+                                                            <b>{{item.POId}}</b>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-5 col-md-offset-3">
+                                                        <p><b class="OrderBodyBold">Ordered Date:&nbsp;{{item.PODate}}&nbsp;&nbsp;{{item.POTime}}</b></p>
+                                                        <p>
+                                                            <b class="OrderBodyBold">Delivered:&nbsp;{{item.DeliveredDate}}</b>
+                                                        </p>
+
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <p class="Orderindex">{{$index + 1}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row OrderShowBodyDiv">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <p style="height: 10px;"></p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-2">
+                                                                <img class="Myorderimg" src="{{item.FilePath}}{{item.FileName}}" width="70" height="80" />
+                                                            </div>
+                                                            <div class="col-md-5">
+                                                                <p class="informationParaMedium">{{item.ProductDescription}}</p>
+                                                                <p class="informationParaMedium">
+                                                                    Color:&nbsp;{{item.Color}}
+                                                                </p>
+                                                                <p class="informationParaMedium">
+                                                                    Quantity:&nbsp;{{item.POItemCount}}&nbsp;*&nbsp;{{item.POItemCost}}
+                                                                </p>
+                                                                <p class="informationParaMedium">
+                                                                    Shipping:&nbsp;{{item.POItemCount}}&nbsp;*&nbsp;{{item.POShipCharge /item.POItemCount}}
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <p>Rs:&nbsp;{{item.POItemCost * item.POItemCount}} + {{item.POShipCharge}}</p>
+                                                                <p class="informationParaSmall">(ItemCost + Shipping)</p>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <button type="button">Return</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3 col-md-offset-9">
+                                                                <b class="OrderBodyBolds">Order:&nbsp;Rs &nbsp;{{item.POAmount}}</b>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <p style="height: 10px"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div ng-hide="MyOrdersDiv">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-1">
+                                <img src="../Images/emptycart1.jpg" width="100" height="100" />
+                            </div>
+                            <div class="col-md-9">
+                                Sorry ,You have "No Order(s)" Currently....
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,169 @@
+﻿
+bodys {
+    background-image: url('/images/bg2.jpg');
+    background-color: white;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.ngview {
+    background-color: white;
+}
+
+.container {
+    background-repeat: repeat;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.container1 {
+    border-radius: 10px;
+    background-color: rgba(128, 128, 128, 0.15);
+    padding: 10px;
+}
+
+.panel panel-primary {
+    background-color: #ccc42d;
+}
+
+#MasterHeader, #MasterHeaderIcon {
+    margin: 10px 20px;
+}
+
+#Headerimg {
+    padding: 10px;
+}
+
+#Heads {
+    background-color: rgba(76, 255, 0, 0.35);
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#contentbody {
+    margin: 3px;
+}
+
+#DDload {
+    padding: 10px;
+    background-color: rgba(200, 193, 193, 0.53);
+    border-radius: 15px;
+}
+
+#ContentPartial {
+    background-color: rgba(76, 255, 0, 0.50);
+}
+
+label {
+    color: green;
+    font-family: Verdana;
+    font-size: 12px;
+    font-style: normal;
+}
+
+    label .text {
+        color: white;
+    }
+
+
+#Menuopen {
+    padding: 5px;
+    border: 1px solid #808080;
+    border-radius: 1px;
+    margin: 1px;
+}
+
+.div-search-items {
+    /*border: solid rgba(0, 128, 0, 0.87) 1px;*/
+    overflow: scroll;
+    height: 220px;
+    border-radius: 5px;
+}
+
+.Rolehref {
+    color: white;
+    background-color: #15d091;
+    padding: 10px;
+    font-family: verdhana;
+    font-size: 12px;
+    border: 1px solid #15d091;
+    border-radius: 3px;
+    width: 180px;
+    position: relative;
+}
+
+.MenuButton {
+    padding: 5px;
+    border: 1px solid #03cc38;
+    color: #03cc38;
+    font-family: Verdana;
+    font-size: 12px;
+    background-color: white;
+}
+
+.MenuButtonChild {
+    padding: 5px;
+    color: #03cc38;
+    font-family: Verdana;
+    font-size: 13px;
+    background-color: white;
+    width: 150px;
+}
+
+    .MenuButtonChild:hover {
+        color: white;
+        background-color: #03cc38;
+        box-shadow: 2px 2px 5px #03cc38;
+        /*border-top-left-radius: 25px;
+        border-top-right-radius: 4px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 4px;*/
+    }
+
+
+.MenuOneGap {
+    height: 100px;
+}
+
+.MenuTwoGap {
+    height: 70px;
+}
+
+.Errmsg {
+    color: red;
+    font-family: Verdana;
+    font-size: 13px;
+    padding: 5px;
+}
+
+.marginrow {
+    padding: 10px;
+}
+
+.mainviewpadding {
+    padding: 15px;
+    background-color: rgba(8, 141, 96, 0.24);
+}
+
+.Footerdiv {
+    background-color: #73a4fb;
+}
+
+.FooterPadding {
+    background-color: white;
+    color: #15d091;
+    font-family: Verdana;
+    font-size: 13px;
+    padding: 15px;
+    border: 1px solid #15d091;
+    border-radius: 2px;
+}
+
+.ProdSelCtrlPading {
+    padding: 15px;
+}
+
+.footerfont {
+    color: #15d091;
+}

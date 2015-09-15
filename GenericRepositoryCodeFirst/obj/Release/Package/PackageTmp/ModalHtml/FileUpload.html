@@ -1,0 +1,106 @@
+﻿<div class="modal-content">
+    <div class="row">
+        <div class="col-md-12">
+            <form name="FileUploadForm" ng-submit="FileUploadingData(FileUploadForm)">
+                <div class="modal-header" style="background-color: rgba(0, 255, 33, 0.42);">
+                    <button type="button" class="close" ng-click="cancel()">&times;</button>
+                    <h4 class="modal-title">Upload and Save the Product Details</h4>
+                    <br />
+
+                </div>
+                <div class="modal-body" style="background-color: rgba(0, 255, 255, 0.07)">
+                    <div class="row" style="padding: 20px; border-radius: 5px;">
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div>
+                                        <input type="file" class="btn btn-danger" id="fileupload" ng-model="F.files" onchange="angular.element(this).scope().fileNameChanged(this.files)" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="image_preview1" style="padding: 10px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="Labelcontent">Select Status:</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="radio" ng-model="F.Status" value="Y" />Avai
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" ng-model="F.Status" value="N" />Not Avai
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Product Cost:</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" min="1" max="100000" ng-model="F.ProductCost" ng-init="F.ProductCost=1" ng-checked="ProductCostChanged(F.ProductCost)" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Is Discount Available: </label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="radio" ng-model="F.ISDiscount" value="Y" />Yes
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="radio" ng-model="F.ISDiscount" value="N" />No
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" ng-show="F.ISDiscount == 'Y'">
+                                <div class="col-md-6">
+                                    <label>Discount (%)</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" min="0" max="100" ng-model="F.DiscountPercent" ng-init="F.DiscountPercent=1" ng-checked="DiscountPercentChanged(F.DiscountPercent)" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Items Count</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="number" min="1" max="10" ng-model="F.ProductCount" ng-init="F.ProductCount=1" ng-checked="ItemsCountChanged(F.ProductCount)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                Product Description:---><i>Note(Max 50 Characters only)</i>
+                            </div>
+                            <div class="col-md-12">
+                                <textarea name="PD" placeholder="Please Give Description" ng-model="F.ProductDescription" ng-minlength="20" ng-maxlength="50" style="width: 400px;"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" ng-click="cancel()">Close</button>
+                    <button type="button" class="btn btn-danger" ng-click="reset()">Reset</button>
+                    <button type="submit" class="btn btn-warning" ng-disabled="FileUploadForm.PD.$error.minlength || FileUploadForm.PD.$error.maxlength">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

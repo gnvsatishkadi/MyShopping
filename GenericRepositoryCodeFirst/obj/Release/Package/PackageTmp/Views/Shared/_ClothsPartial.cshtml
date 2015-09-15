@@ -1,0 +1,25 @@
+﻿<div class="row" ng-controller="Dynamically">
+    <div class="col-md-2 col-md-offset-1">
+        <label>Men Shopping</label>
+        <select ng-model="Upload.Category" ng-options="c.Category for c in DynClothData track by c.CategoryId" ng-change="GetBrand(Upload.Category.CategoryId)">
+            <option value="">Select Category:</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <div id="MenClothing">
+            <img name="MenClothing" class="img-circle" src="~/Images/Mencloth.jpg" width="200" height="200" /><br />
+            <label>Men Clothing World</label>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div id="WomanClothing">
+            <img name="WomanClothing" class="img-circle" src="~/Images/Womancloth.jpg" width="200" height="200" /><br />
+            <label>Woman Clothing World</label>
+        </div>
+    </div>
+    <div class="col-md-3 col-md-offset-0">
+        <label>Woman Shopping</label>
+    </div>
+    <label>{{msg}}</label>
+</div>
+

@@ -1,0 +1,11 @@
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\GRDataFacade.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\GRDataFacade.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\GRDataLayer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\GRDataModel.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\EntityFramework.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\GRDataLayer.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\GRDataModel.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\bin\Release\EntityFramework.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\obj\Release\GRDataFacade.csprojResolveAssemblyReference.cache
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\obj\Release\GRDataFacade.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataFacade\obj\Release\GRDataFacade.pdb

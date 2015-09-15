@@ -1,0 +1,20 @@
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\GRDataModel.dll.config
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\GRDataModel.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\GRDataModel.pdb
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.xml
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\obj\Debug\GRDataModel.dll
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\obj\Debug\GRDataModel.pdb
+E:\UsersProfiles\skadi\Documents\Visual Studio 2012\Projects\GenericRepositoryCodeFirst\GRDataModel\obj\Debug\GRDataModel.csprojResolveAssemblyReference.cache
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\GRDataModel.dll.config
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\GRDataModel.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\GRDataModel.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\obj\Debug\GRDataModel.dll
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\obj\Debug\GRDataModel.pdb
+D:\Backup-45\MVC\GenericRepositoryCodeFirst\GRDataModel\obj\Debug\GRDataModel.csprojResolveAssemblyReference.cache

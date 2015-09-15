@@ -1,0 +1,207 @@
+﻿.LandingPageBtns {
+    padding: 5px;
+    color: #808080;
+    text-decoration: none;
+}
+
+    .LandingPageBtns:hover {
+        background-color: white;
+        text-decoration: none;
+        color: #f56b45;
+        cursor: pointer;
+    }
+
+.LandingHead {
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    background-color: white;
+}
+
+.LandingBody {
+    background-color: #d7d7d7;
+    height: 510px;
+}
+
+.LandingBottom {
+    padding: 20px;
+    margin: 10px;
+    background-color: white;
+}
+
+.SecondMenu {
+    padding: 40px;
+}
+
+p {
+    color: #049f74;
+    font-family: verdhana;
+    font-size: 19px;
+}
+
+.LandCtrls {
+    padding: 5px;
+    border: 1px solid #d7d7d7;
+    border-radius: 4px;
+    width: 220px;
+    height: 40px;
+    color: #808080;
+}
+
+.Gap {
+    height: 10px;
+}
+
+.ForgetPass {
+    color: #808080;
+    font-family: verdhana;
+    font-size: 14px;
+}
+
+    .ForgetPass:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: #049f74;
+    }
+
+
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 40%;
+    height: 50%;
+    margin: auto;
+}
+
+.Headings {
+    color: #049f74;
+    font-family: verdhana;
+    font-size: 12px;
+    box-shadow: 5px 5px 5px #0adca2;
+}
+
+.facebooklogin {
+    background-color: #2393e8;
+    font-family: verdhana;
+    font-size: 12px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    transition: height 1s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .facebooklogin:hover {
+        height: 135px;
+    }
+
+.googlelogin {
+    background-color: #e82408;
+    font-family: verdhana;
+    font-size: 12px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    transition: height 1s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .googlelogin:hover {
+        height: 135px;
+    }
+
+
+
+.gmaillogin {
+    background-color: #b9b7b7;
+    font-family: verdhana;
+    font-size: 12px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    transition: height 1s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .gmaillogin:hover {
+        height: 135px;
+    }
+
+.LoginDivsMenu {
+    height: 100px;
+}
+
+.loginimgs {
+    border-radius: 25px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.loginmenufont {
+    font-family: verdhana;
+    font-size: 14px;
+    color: white;
+    padding: 5px;
+}
+
+.loginmenunotice {
+    color: #f56b45;
+    font-family: verdhana;
+    font-size: 14px;
+}
+
+.backspanbtn {
+    width: 30px;
+    height: 100px;
+    color: white;
+    padding: 5px;
+    background-color: #f56b45;
+    cursor: pointer;
+}
+
+.smallhreflink {
+    font-family: verdhana;
+    font-size: 14px;
+    color: #049f74;
+}
+
+.logoheading {
+    color: #f56b45;
+    font-family: 'Comic Sans MS';
+    font-size: 20px;
+    text-shadow: 2px 2px 2px #fca48c;
+}
+
+.logoheading1 {
+    color: white;
+    font-family: 'Comic Sans MS';
+    font-size: 28px;
+}
+
+.logotexthead {
+    color: #808080;
+    font-size: 13px;
+}
+
+.loginbtns {
+    color: white;
+    background-color: #0fc794;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.LoginErrfont {
+    color: white;
+    font-family: verdhana;
+    font-size: 13px;
+    padding: 4px;
+    background-color: #e82408;
+    border-radius: 4px;
+}
+
+.glyphicon .glyphicon-home {
+    font-size: 100px;
+}

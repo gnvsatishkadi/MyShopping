@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GRDataModel.RepRegister>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.Partial("_Test1");
+
+<p>
+    @Html.ActionLink("Create New", "InsertNew")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Updates", new { id = item.RepRegisterId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.RepRegisterId })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,427 @@
+﻿@{
+    ViewBag.Title = "UploadProducts";
+    Layout = "~/Views/Shared/_Home.cshtml";
+}
+
+<html>
+<head>
+    <title>Products Uploading</title>
+
+    @*Angular References*@
+    @*<script src="~/AngularJS/AngularContent/angular-file-upload.js"></script>*@
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="~/AngularJS/AngularContent/farbtastic.js"></script>
+    <link href="~/AngularJS/AngularContent/farbtastic.css" rel="stylesheet" />
+    <script src="~/AngularJS/AngularMVC/UploadModule.js"></script>
+    <script src="~/AngularJS/AngularMVC/UploadController.js"></script>
+    <script src="~/AngularJS/AngularMVC/UploadServices.js"></script>
+    <link href="~/AngularJS/AngularContent/UploadCss.css" rel="stylesheet" />
+    @*<script src="~/AngularJS/AngularContent/angular-file-upload.js"></script>*@
+    <style type="text/css">
+        form select {
+            width: 160px;
+        }
+
+        label .Labelcontent {
+            color: black;
+            font-family: Calibri;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $('#picker').farbtastic('#color');
+
+            //File uploading client side validations
+            //$('input[type=file]').on('change', prepareUpload);
+            //FileUploadSubmit when user click this button 
+
+            //$('#FileUploadSubmit').on('click', CheckingFiles);
+            $('#image_preview1').on('click', 'a.remove_block', function (events) {
+
+                $(this).parents('div').eq(1).remove();
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function GetColor() {
+            var color = $('#color').val();
+        }
+        //Call this function  when image is changed in the file upload controller
+        function prepareUpload() {
+            alert('continue...');
+
+            var count = this.files.length;
+            var currentimglen = $("#image_preview").find('img').length;
+            if (count <= 4) {
+                if ((count + currentimglen) <= 4) {
+                    var match = ["image/jpeg", "image/png", "image/jpg"];
+                    var file = '';
+                    for (var i = 0; i < count; i++) {
+
+                        file = this.files[i];
+                        var imagefile = file.type;
+                        var imagename = file.name;
+
+                        for (var i = 0 ; i <= currentimglen; i++) {
+
+                            switch (currentimglen) {
+                                case (0):
+
+                                    if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+                                        $('#previewing').attr('src', '');
+                                        $("#message").html("<p id='error'>Please Select A valid Image File</p>" + "<h4>Note</h4>" + "<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
+                                        return false;
+                                    }
+                                    else {
+                                        var reader = new FileReader();
+                                        reader.onload = imageIsLoaded;
+                                        reader.readAsDataURL(this.files[0]);
+                                    }
+
+                                    break;
+                                case (1):
+                                case (2):
+                                case (3):
+                                case (4):
+
+                                    var arr = $("#up_" + i).find('label').attr('id');
+                                    alert(arr);
+
+                                    var img = $(document.getElementById('#up_' + i));
+
+
+                                    //alert(img); // foo.jpg
+                                    //alert(img[0]);                 // http://..../foo.jpg
+                                    //alert(arr[0]);    // name
+                                    //alert(arr[1]);    // extension
+                                    var idname = id.val();
+                                    if (idname.indexOf(imagename) > 0) {
+
+                                        alert('You are Already select' + idname + 'file');
+                                        return false;
+                                    }
+                                    else {
+                                        alert(idname.indexOf(imagename) > 0);
+                                        if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+                                            $('#previewing').attr('src', '');
+                                            $("#message").html("<p id='error'>Please Select A valid Image File</p>" + "<h4>Note</h4>" + "<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
+                                            return false;
+                                        }
+                                        else {
+                                            var reader = new FileReader();
+                                            reader.onload = imageIsLoaded;
+                                            reader.readAsDataURL(this.files[0]);
+                                        }
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+
+                            /*   var id = $("#up_" + i).find('img');
+                               var idname = $(this).val();
+                               if (idname.contains(imagename)) {
+                                   alert('You are Already select' + idname + 'file');
+                                   return false;
+                               }
+                               else {
+                                   if (!((imagefile == match[0]) || (imagefile == match[1]) || (imagefile == match[2]))) {
+                                       $('#previewing').attr('src', '');
+                                       $("#message").html("<p id='error'>Please Select A valid Image File</p>" + "<h4>Note</h4>" + "<span id='error_message'>Only jpeg, jpg and png Images type allowed</span>");
+                                       return false;
+                                   }
+                                   else {
+                                       var reader = new FileReader();
+                                       reader.onload = imageIsLoaded;
+                                       reader.readAsDataURL(this.files[i]);
+                                   }
+                               }*/
+                        }
+                    }
+                    function imageIsLoaded(e) {
+                        count = count - 1;
+                        $("#file").css("color", "green");
+                        $('#image_preview').css("display", "block");
+
+                        var newdiv = '<div class="col-md-4"><div id="up_' + count + '">' +
+                            '<div>' +
+                             '<img id="img_' + count + '" src ="' + e.target.result + '" width="100px" height="100px">' +
+                            '</div><div><label  id="' + imagename + '"  >' + imagename + '</label></div><div><a class="remove_block" href="#"><span class="glyphicon glyphicon-trash"></span>Remove</a></div>' +
+                            '</div></div>';
+                        $(newdiv).appendTo('#image_preview');
+
+                        //var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+                        //img.attr('src', e.target.result);
+                        //img.attr('width', '120px');
+                        //img.attr('height', '100px');
+                        //img.appendTo('#image_preview');
+
+                        //   $('#previewing' + (count)).attr('src', e.target.result);
+                        //  $('#previewing' + (count)).attr('width', '120px');
+                        //  $('#previewing' + (count)).attr('height', '100px');
+                    };
+                }
+                else {
+                    var CurrImglen = 'Sorry ,you already select' + currentimglen + 'files' +
+                                     '----****----' +
+                                     'Please Select ' + (4 - currentimglen) + ' files only';
+
+                    alert(CurrImglen);
+                    return false;
+                }
+            }
+            else {
+                alert('Please select Max 4 files only');
+                return false;
+            }
+        }
+
+        //CheckingFiles ,,when user not able to upload 4 files 
+        function CheckingFiles() {
+
+            var currentimglen = $("#image_preview").find('img').length;
+            var input = document.getElementById('fileupload');
+            if (currentimglen < 4) {
+                alert('Please select files');
+                return false;
+            }
+            else {
+
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <div id="content" ng-controller="UploadController">
+        <div class="panel-group">
+            <form class="form-inline" name="UploadForm" ng-submit="UploadProduct(Upload)">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Product Type*</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-0">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>Select Product Type:</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <select class="btn btn-primary dropdown-toggle" ng-model="Upload.ProductType" ng-options="c.ProdType  for c in ProductList track by c.ProdId" ng-change="GetSelectedProductType(Upload.ProductType.ProdType,Upload.ProductType.ProdId)">
+                                            <option value="">Select Product Type:</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-sm-offset-0">
+                                <div class="row">
+                                    <div class="col-sm-11">
+                                        <div ng-switch="Upload.ProductType.ProdType">
+                                            <div ng-switch-when="Cloths">
+                                                <div clothgender-dir></div>
+                                            </div>
+                                            <div ng-switch-when="Mobiles">
+                                                <div mobileos-dir></div>
+                                            </div>
+                                            <div ng-switch-when="FootWares">
+                                                <div clothgender-dir></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default"></div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Category Type*</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Select Category Type:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="btn btn-primary dropdown-toggle" ng-model="Upload.Category" ng-options="c.Category for c in CategoryList track by c.CategoryId" ng-change="GetBrand(Upload.Category.CategoryId,Upload.Category.Category)">
+                                                <option value="">Select Category:</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-11">
+                                            <div ng-switch="Upload.ProductType.ProdType">
+                                                <div ng-switch-when="Cloths">
+
+                                                    <div clothnecktype-dir></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default"></div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Brand Type*</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Select Brand Type:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="btn btn-primary dropdown-toggle" ng-model="Upload.Brand" ng-options="c.BrandName for c in BrandList track by c.BrandRefId" ng-disabled="BrandDisabled">
+                                                <option value="">Select Brand Name:</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-11">
+                                            <div ng-switch="Upload.ProductType.ProdType">
+                                                <div ng-switch-when="Cloths">
+                                                    <div clothfit-dir></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default"></div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Color Selection*</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Select Color:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="btn btn-primary dropdown-toggle" ng-model="Upload.ColorName" ng-options="c.ColorName for c in ColorList track by c.ColorRefId" ng-disabled="ColorDisabled">
+                                                <option value="">Select Color Name:</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-11">
+                                            <div ng-switch="Upload.ProductType.ProdType">
+                                                <div ng-switch-when="Cloths">
+                                                    <div clothsleeve-dir></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default"></div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Size Selection*</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Select Size:</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="btn btn-primary dropdown-toggle" ng-model="Upload.Size" ng-options="c.Size for c in ClothSizeList track by c.SizeRefId" ng-disabled="SizeDisabled">
+                                                <option value="">Select Size:</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-11">
+                                            <div ng-switch="Upload.ProductType.ProdType">
+                                                <div ng-switch-when="Cloths">
+                                                    <div clothmaterial-dir></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default"></div>
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Occasion Selection*</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-sm-offset-0">
+                                    <div class="row">
+                                        <div class="col-sm-11">
+                                            <div ng-switch="Upload.ProductType.ProdType">
+                                                <div ng-switch-when="Cloths">
+                                                    <div clothoccasion-dir></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="panel panel-default">
+                        <div class="panel-heading">Color Selection*</div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-4">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Select Color Type:</label>
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalColor">Select Color</button>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Upload Files:</label>
+                                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalFileUploads">Upload Files</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-danger" data-animation="am-fade-and-scale" value="Submit">Uploading Files...</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

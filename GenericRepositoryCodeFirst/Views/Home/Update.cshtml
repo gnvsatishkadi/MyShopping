@@ -1,0 +1,41 @@
+﻿@model GRDataModel.RepRegister
+
+@{
+    ViewBag.Title = "UpdateNew";
+}
+
+@using (Html.BeginForm("Update", "Home", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Name
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.HiddenFor( m => m.RepRegisterId)
+            </td>
+        </tr>
+        <tr>
+            <td>Email
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>Mobile
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Mobile)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Update" />
+                <input type="button" value="cancel" />
+            </td>
+
+        </tr>
+    </table>     
+
+}

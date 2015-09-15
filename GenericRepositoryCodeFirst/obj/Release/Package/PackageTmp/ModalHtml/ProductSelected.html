@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Product Selected</title>
+    <script src="../AngularJS/AngularMVC/jquery.min.js"></script>
+    <script src="../AngularJS/AngularMVC/jquery.ui.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $(".DelivaryCheckOpen").click(function () {
+                // Set the effect type
+                var effect = 'slide';
+                // Set the options for the effect type chosen
+                var options = {
+                    direction: 'right'
+                };
+                var duration = 600;
+                //$('#myDiv').toggle(500);
+                $('#myDiv').toggle(effect, options, duration);
+            });
+        });
+    </script>
+    <style type="text/css">
+        #myDiv {
+            display: none;
+            position: relative;
+            float: right;
+            width: 430px;
+            background-color: white;
+            border: 1px solid #e9e4e4;
+            height: 120px;
+        }
+
+        .DeliveryResultShow {
+            color: #07b98d;
+            font-family: 'Times New Roman';
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        .SizeCheckbox {
+            width: 35px;
+            height: 35px;
+            border: 1px solid #0ff;
+            background-color: #07b98d;
+            color: white;
+            padding: 6px;
+            margin: 2px;
+        }
+
+        .ImageItemsShow {
+            border: 1px solid #b5b3b3;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .SelectedItemHeading {
+            color: #07b98d;
+            font-family: Verdana;
+            font-size: 14px;
+        }
+
+        .CirclePercent {
+            color: red;
+            width: 40px;
+            height: 40px;
+            border-radius: 25px;
+            padding: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="ProductSelectedCtrl">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row ProdSelCtrlPading">
+                    <div class="col-md-12">
+                        <div ng-show="ShowHideProductSelectedDiv">
+                            <form name="ProductSelectedForm" ng-submit="PaymentProcessBtn(ProductSelectedForm)">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="ProductDescDiv">
+                                                    <img src="{{F.FrameImg}}" width="340" height="480" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1i col-md-offset-1">
+                                                <b ng-show="PincodeErrMsg" class="ShowPinCheckErrMsg">First Check Your Delivery Available/Not</b>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <b>
+                                                    <p class="SelectedItemHeading">#{{F.Brand}}</p>
+                                                </b>
+
+                                                <label style="color: black; font-family: Verdana; font-size: 18px;">{{F.ProductDescription}}/(Size:{{F.Size}})</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12" style="height: 130px">
+                                                <div class="row">
+                                                    <div class="col-md-2" ng-repeat=" SB in DashboardImages">
+                                                        <img class="ImageItemsShow" ng-src="{{SB.FilePath}}{{SB.FileName}}" width="60" height="100" ng-click="FramsImg(SB)" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <b ng-show="SizeErrMsg">Select Size</b>
+                                                    </div>
+                                                    <div class="col-md-1" ng-repeat="items in ProductAvailableSizeList">
+                                                        <div class="SizeCheckbox" style="cursor: pointer;" ng-model="items.Size" ng-click="ProductSelectedSize(items.Size)">{{items.Size}}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <p style="height: 20px;"></p>
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="row">
+
+
+                                            <div class="col-md-12" id="buyforbtn">
+                                                <div class="row ">
+                                                    <div class="col-md-3">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <a href="#/Shop/Cart" type="submit" ng-disabled="CheckItemAvailOrNOt(F.ItemId)" tooltip="{{TooltipMsg}}" class="btn btn-success" ng-click="AddItemBtnToCartInSelectionCtrl(ProductSelectedForm)">
+                                                                    <span class="glyphicon glyphicon-shopping-cart "></span>
+                                                                    Add Item
+                                                                </a>
+                                                                <br />
+                                                                <b class="OutofStockMsg" ng-show="SoldoutMsg">Out of Stock</b>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <a style="pointer-events: none" class="CirclePercent">{{F.DiscountPercent}}&nbsp;%</a>
+                                                        Discount
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <div class="row AmountDisplayChart ">
+                                                            <div class="col-md-7">Original Price</div>
+                                                            <div class="col-md-2"><strike>{{F.ProductCost}}</strike></div>
+                                                            <div class="col-md-1">
+                                                                &nbsp;Rs
+                                                            </div>
+
+                                                            <div class="col-md-7">After Discount</div>
+                                                            <div class="col-md-2">{{F.AfterDiscountCost}}</div>
+                                                            <div class="col-md-1">
+                                                                &nbsp;Rs
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                {{AvailErrMsg}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="DeliveryShowdiv">Sold By</div>
+                                                        <b>{{F.Seller}}</b>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="DeliveryShowdiv" ng-show="CheckShippingCharge()">Delivery Charge : <b>{{F.ShippingCharges}}&nbsp;Rs</b></div>
+                                                    </div>
+                                                    <div class="col-md-6 DivWidth">
+                                                        <label class="ProductDescLabel" ng-show="visibleEffectivePrice">Effective Price : {{F.PromoDiscount}}&nbsp;Rs</label><br />
+                                                    </div>
+                                                </div>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                        <div class="row">
+
+                                            <div class="col-md-12" ng-show="F.ShowHideDelivaryCheck">
+                                                <p></p>
+                                                <div class="row">
+                                                    <div class="col-md-1">
+                                                        <img ng-src="/Images/truck.jpg" width="30" height="20" />
+                                                    </div>
+                                                    <div class="col-md-7">
+                                                        <p class="ProductDescLabel">Check Availability & Shipping Charges</p>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <input type="text" maxlength="6" class="DelivaryChecking" ng-model="F.Pincode" numbers-only="numbers-only" ng-keyup="CheckDelivaryPincode($event,F.Pincode,F.PromoDiscount)" />
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="ProductDescDiv" id="myDiv">
+
+                                                    <div class="row" ng-show="F.ShowHideDelivaryResult">
+                                                        <div class="col-md-1">
+                                                            <img ng-src="/Images/{{AvailOrNOtImg}}" width="25" height="20" />
+                                                        </div>
+                                                        <div class="col-md-11">
+                                                            <p class="ProductDescLabel">{{AvaiOrNot}} / {{F.Pincode}}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row" ng-show="F.ShippingCharges">
+                                                        <div class="col-md-11 col-md-offset-1">
+                                                            <div class="DeliveryResultShow">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 ">Cash On Delivary </div>
+                                                                    <div class="col-md-6">: {{COD}}</div>
+                                                                    <p></p>
+                                                                    <div class="col-md-6 ">Delivary Area</div>
+                                                                    <div class="col-md-6">: {{Area}}</div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="ProductDescDiv">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p class="SelectedItemHeading">Description about Product</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p style="width: 20px">
+                                                            <hr />
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-9 col-md-offset-3">
+                                                            <p class="SelectedItemHeading">{{F.ProductDescription}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-md-offset-1">
+                                                            Product Code
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            {{F.ItemId}}
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-md-offset-1">
+                                                            Brand
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            {{F.Brand}}
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="row">
+                                                       <div class="col-md-5 col-md-offset-1">
+                                                            Color
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            {{F.Color}}
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-md-offset-1">
+                                                            Material
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            Cotton
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="row">
+                                                       <div class="col-md-5 col-md-offset-1">
+                                                            Sleeves
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            {{F.Sleeves}}
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-md-offset-1">
+                                                            Fit
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            {{F.Fit}}
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-md-offset-1">
+                                                            Size
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            {{F.Size}}
+                                                        </div>
+                                                    </div>
+                                                    <p></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-12">
+                                                <div class="ProductDescDiv">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <p class="SelectedItemHeading">Shipping Details</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <p style="width: 20px">
+                                                            <hr />
+                                                        </p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-md-offset-1">
+                                                            Estimated Delivery Days
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            9
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <hr />
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-3 col-md-offset-1">
+                                                            Returned Policy
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            Seller will accept returns within a 15 days from date of delivery of the item
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div ng-hide="ShowHideProductSelectedDiv">
+                            <h1 style="color: red">
+                                <p>Please don't change the URL</p>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

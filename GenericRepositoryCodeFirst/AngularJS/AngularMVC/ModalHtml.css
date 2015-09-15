@@ -1,0 +1,685 @@
+﻿.ProductDescLabel {
+    color: #373636;
+    font-family: Verdana;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.ProductTotalLabel {
+    color: #fff;
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+.ProductDescDiv {
+    background-color: #fff;
+    border: 1px solid #e9e4e4;
+    color: #373636;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.ProductDesPromoCode {
+    color: red;
+    font-family: Verdana;
+}
+
+.Ahref {
+    color: #b4b1b1;
+    font-family: Verdana;
+    font-size: x-small;
+}
+
+.Ahref1 {
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 14px;
+}
+
+    .Ahref1:hover {
+        text-decoration: none;
+        cursor: pointer;
+        color: green;
+    }
+
+.DivWidth {
+    height: 20px;
+}
+
+.uncheck {
+    color: green;
+    font-family: Verdana;
+    font-size: 12px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid #d5cfcf;
+    width: 80px;
+}
+
+.check {
+    color: white;
+    font-family: Verdana;
+    font-size: 12px;
+    background-color: green;
+    border-radius: 5px;
+    border: 1px solid #d5cfcf;
+    width: 80px;
+}
+
+
+.DelivaryCheckUser {
+    width: 250px;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.08);
+    color: black;
+    height: 32px;
+    font-size: 14px;
+    text-align: left;
+}
+
+div .DelivaryCheckPin {
+    width: 120px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid #d5cfcf;
+    color: #808080;
+    border-radius: 3px;
+}
+
+div .DelivaryCheck {
+    height: 35px;
+    background-color: white;
+    border: 1px solid #d5cfcf;
+    color: #808080;
+    border-radius: 3px;
+    width: 230px;
+    text-align: left;
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+div .FinalAddress {
+    background-color: #fff;
+    border: 1px solid #d5cfcf;
+    color: #373636;
+    border-radius: 3px;
+    padding: 20px;
+    font-size: 1.000em;
+}
+
+#buyforbtn {
+    margin-left: 15px;
+}
+
+.BerofeBackToProducts1 {
+    height: 30px;
+    background-color: white;
+    color: green;
+    font-family: Verdana;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #b4b1b1;
+    text-decoration: none;
+}
+
+.BerofeBackToProducts2 {
+    background-color: #8bd7f8;
+    color: white;
+    font-family: Verdana;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #b4b1b1;
+    text-decoration: none;
+}
+
+div #ProdCartItemDiv {
+    background-color: rgba(128, 128, 128, 0.08);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.ProdCartlistDiv {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.08);
+}
+
+.ProdCarttotalDiv {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px 10px 20px;
+    margin: 10px;
+    border: 2px solid rgba(128, 128, 128, 0.08);
+}
+
+div #ProdCartOrderDiv {
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+
+.prodAddLabel {
+    color: green;
+    font-family: verdhana;
+    font-size: 14px;
+}
+
+.prodorderlist {
+    background-color: red;
+    color: #808080;
+}
+
+.division {
+    background-color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: 1px solid #808080;
+}
+
+div .Horizontalline {
+    position: absolute;
+    border-right: 1px solid red;
+    top: 0;
+    bottom: 0;
+}
+
+div .dynamicclass {
+    background-color: green;
+    color: white;
+    font-family: Verdana;
+    font-size: 16px;
+}
+
+.ButtonClass {
+    width: 140px;
+    height: 40px;
+    background-color: #07b98d;
+    color: white;
+    font-family: Verdana;
+    border: 1px solid #d5cfcf;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.ButtonClassBuyBtn {
+    width: 1000px;
+    height: 70px;
+    background-color: #07b98d;
+    color: white;
+    font-family: Verdana;
+    border: 1px solid #d5cfcf;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.ButtonClass1 {
+    width: 140px;
+    height: 40px;
+    background-color: #0ac7c7;
+    color: white;
+    font-family: Verdana;
+    border: 1px solid #d5cfcf;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.DeliverBtnsSignin {
+    width: 100px;
+    height: 35px;
+    background-color: #07b98d;
+    color: white;
+    font-family: Verdana;
+    border: 1px solid #d5cfcf;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .DeliverBtnsSignin:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+.DeliverBtnsCancel {
+    width: 100px;
+    height: 35px;
+    background-color: #07b98d;
+    color: white;
+    font-family: Verdana;
+    border: 1px solid #d5cfcf;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.ButtonClass:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.ButtonClass1:hover {
+    text-decoration: none;
+    color: white;
+}
+
+
+.productCartDiv {
+    background-color: rgba(128, 128, 128, 0.08);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2px;
+}
+
+.ProductColor {
+    color: #11be84;
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+.HeaderCartitem {
+    background-color: rgba(128, 128, 128, 0.08);
+    height: 40px;
+    padding: 10PX;
+}
+
+.BodyCartitem {
+    padding: 10px;
+    background-color: white;
+}
+
+.Gridding {
+    background-color: rgba(128, 128, 128, 0.08);
+    padding: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.08);
+    border-radius: 2px;
+}
+
+.CheckoutHeadings {
+    background-color: #c3bfbf;
+    color: white;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 12px;
+}
+
+.CheckoutBody {
+    border: 0px 1px 1px 1px solid #07b98d;
+    border-radius: 2px;
+    padding: 10px;
+    background-color: #E2E6E9;
+}
+
+.CheckoutBodyOrderlist {
+    border: 1px solid #0ac7c7;
+    border-radius: 2px;
+    background-color: #07b98d;
+    color: white;
+    margin: 2px;
+    padding: 2px;
+}
+
+.CheckoutOrdertype {
+    border: 1px solid #0ac7c7;
+    border-radius: 2px;
+    background-color: white;
+    color: black;
+    margin: 2px;
+    padding: 2px;
+}
+
+.CartMainHead {
+    font-family: verdhana;
+    color: #525050;
+    border-radius: 3px;
+}
+
+.PaymentDiv {
+    border: 1px solid #d5cfcf;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.PaymentType {
+    background-color: #07b98d;
+    color: white;
+    font-family: verdhana;
+    padding: 20px;
+    font-size: 16px;
+    border: 1px solid white;
+    margin: 5px;
+    border-radius: 15px 50px;
+}
+
+    .PaymentType:hover {
+        background-color: white;
+        color: #07b98d;
+        border-radius: 15px 50px;
+        border: 1px solid #07b98d;
+    }
+
+.PaymentType1 {
+    background-color: #d5cfcf;
+    color: white;
+}
+
+.triangle {
+    width: 0px;
+    height: 0px;
+    display: inline;
+    border-style: solid;
+    border-width: 22px 0 22px 22px;
+    border-color: transparent transparent transparent #85b375;
+    position: absolute;
+}
+
+.PaymentDivison {
+    border: 1px solid #07b98d;
+    background-color: rgba(155, 154, 154, 0.08);
+    padding: 10px;
+    color: black;
+    margin: 5px;
+}
+
+div .imgDashboard {
+    -webkit-transition: all 1s ease-out;
+}
+
+    div .imgDashboard:hover {
+        border: 1px solid #07b98d;
+        /*-webkit-transform: scale(0.80);*/
+    }
+
+.btn-circle {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    padding: 2px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 100px;
+}
+
+    .btn-circle.btn-lg {
+        width: 50px;
+        height: 50px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 25px;
+    }
+
+.CircleClass {
+    background-color: #f3d06d;
+}
+
+.LayoutHeadMenu {
+    border-radius: 2px;
+    text-decoration: none;
+}
+
+    .LayoutHeadMenu:hover {
+        cursor: pointer;
+        color: green;
+        text-decoration: none;
+    }
+
+.ForgetPass {
+    color: #07b98d;
+}
+
+    .ForgetPass:hover {
+        text-decoration: none;
+        color: #07b98d;
+        cursor: pointer;
+    }
+
+.SearchBoxClass {
+    background-color: white;
+    height: 35px;
+    border-radius: 2px;
+    border: 1px solid #d5cfcf;
+    width: 250px;
+}
+
+.MainAhref {
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 14px;
+}
+
+    .MainAhref:hover {
+        font-size: 14px;
+        text-decoration: none;
+        animation-delay: 1s;
+        color: black;
+        font-size: 16px;
+    }
+
+
+.active {
+    background-color: #07b98d;
+    color: white;
+}
+
+.DivPassed {
+    background-color: white;
+    color: green;
+    padding: 20px;
+    border: 1px solid green;
+    border-radius: 10px;
+}
+
+.Circles {
+    background-color: white;
+}
+
+.DelivaryHead1 {
+    padding: 15px;
+    font-family: Verdana;
+    border: 1px solid #11be84;
+    background-color: white;
+    color: #11be84;
+    border-radius: 3px;
+}
+
+
+.PopHead {
+    background-color: #11be84;
+    color: white;
+    padding: 20px;
+}
+
+.popBody {
+    background-color: white;
+    color: #11be84;
+    padding: 20px;
+    border: 1px solid #07b98d;
+    border-radius: 5px;
+}
+
+.DelivaryTypeRadio {
+    background-color: white;
+    border: 1px solid #11be84;
+    padding: 5px;
+    color: #11be84;
+}
+
+    .DelivaryTypeRadio .Active {
+        background-color: #11be84;
+        color: white;
+        padding: 5px;
+    }
+
+.DelivaryCheckDone {
+    width: 100px;
+    height: 35px;
+    background-color: #07b98d;
+    color: white;
+    font-family: Verdana;
+    border: 1px solid #d5cfcf;
+    border-radius: 2px;
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.FinalAmount {
+    background-color: #ff6a00;
+    color: white;
+    font-size: 16px;
+    font-family: verdhana;
+    padding: 10px;
+}
+
+.DelivaryChecking {
+    height: 35px;
+    background-color: white;
+    border: 1px solid #d5cfcf;
+    color: #808080;
+    border-radius: 3px;
+    width: 90px;
+    text-align: left;
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+.PaymentRow {
+    color: white;
+    font-family: Verdana;
+    font-size: 13px;
+    background-color: #E2E6E9;
+}
+
+.amountboardgap {
+    height: 15px;
+}
+
+.PaymentSmall {
+    width: 65px;
+    background-color: white;
+    border: 1px solid rgba(128, 128, 128, 0.08);
+    color: black;
+    height: 32px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.Choose {
+    background-color: #07b98d;
+    color: white;
+    padding: 10px;
+    margin: 2px;
+    border: 1px solid #d5cfcf;
+    border-radius: 5px;
+}
+
+.ShowPinCheckErrMsg {
+    color: #f13320;
+    font-family: Verdana;
+    font-size: 12px;
+}
+
+.QuantytyTextBox {
+    width: 30px;
+    border: 1px solid #07b98d;
+}
+
+.DeliveryShowdiv {
+    color: #11be84;
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+
+.AmountDisplayChart {
+    border-left: 1px solid #07b98d;
+    color: #07b98d;
+    padding: 5px;
+    font-family: 'Times New Roman';
+}
+
+.main-wrapper {
+    background: green;
+    padding: 100px;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff;
+    opacity: 0.7;
+    z-index: 5000;
+    display: none;
+}
+
+.popup {
+    background: red;
+    padding: 5px;
+    z-index: 6000;
+    position: absolute;
+    display: none;
+    width: 300px;
+    height: 100px;
+}
+
+.OutofStockMsg {
+    color: red;
+    font-size: 12px;
+}
+
+.PaymentBigInputctrl {
+    border: 1px solid #d5cfcf;
+    padding: 3px;
+    text-align: left;
+    border-radius: 2px;
+    background-color: white;
+    color: #468fe8;
+    font-family: Verdana;
+    font-size: 14px;
+    width: 240px;
+    height: 35px;
+}
+
+.PaymentSmallInputctrl {
+    border: 1px solid #d5cfcf;
+    padding: 3px;
+    text-align: left;
+    border-radius: 2px;
+    background-color: white;
+    color: #468fe8;
+    font-family: Verdana;
+    font-size: 14px;
+    width: 60px;
+    height: 35px;
+}
+
+.PaymentXSmallInputctrl {
+    border: 1px solid #d5cfcf;
+    padding: 3px;
+    text-align: left;
+    border-radius: 2px;
+    background-color: white;
+    color: #468fe8;
+    font-family: Verdana;
+    font-size: 14px;
+    width: 30px;
+    height: 35px;
+}
+
+.LandCtrls {
+    text-align: left;
+}

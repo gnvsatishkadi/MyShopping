@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>TrackOrder</title>
+</head>
+<body>
+    <div ng-controller="OrderSummaryCtrl">
+
+        <div ng-show="SessionData">
+            <div class="MainTrackOrderDiv">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <b class="TrackBoldSuccess">
+                                    <div ng-show="POrderResult.POBackStatus =='Accepted'">Your Order is Successful.</div>
+                                </b>
+                            </div>
+                            <div class="col-md-1">
+                                <span class="glyphicon glyphicon-file span">Invoice</span>
+                            </div>
+                            <div class="col-md-1">
+                                <span class="glyphicon glyphicon-envelope span">Contact</span>
+                            </div>
+                            <div class="col-md-1">
+                                <span class="glyphicon glyphicon-print span">Print</span>
+                            </div>
+                        </div>
+                        <p class="TrackDivGap"></p>
+                        <div class="row ThankyouRow">
+                            <div class="col-md-2">
+                                <img src="../Images/Thankyou.jpg" width="120" height="160" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <b class="TrackBold">Thank you for Your Order !</b><br />
+                                        <p class="TrackDivGap"></p>
+                                        <b>Your OrderId &nbsp;</b><b class="TrackBold">{{POrderResult.POId}}</b><br />
+                                        Your Order has been Placed and is being Processed.
+                                    When the Item(s) are shipped,you will receive an email, with the Details
+                                   You can Track this order through "<b>MyOrder</b>" page.<br />
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <p class="TrackDivGap"></p>
+                                        Rs:<b class="TrackBold">&nbsp;{{POrderResult.POAmount}}</b> &nbsp;paid through &nbsp;{{POrderResult.PaymentDivison}}
+                                    <br />
+                                        <p class="informationParaSmall">(ItemCost + Shipping + Delivery)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <b class="TrackBold">Receive Your Order @</b><br />
+                                        <p class="TrackDivGap"></p>
+                                        {{POrderResult.ReceiverName}}<br />
+                                        {{POrderResult.PrimaryAddress}}<br />
+                                        {{POrderResult.Area}}<br />
+                                        {{POrderResult.District}}<br />
+                                        {{POrderResult.MobileNumber}}<br />
+                                        {{POrderResult.AlterMobileNumber}}<br />
+                                        {{POrderResult.PinCode}}<br />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-2">
+                                <img src="../Images/truck.jpg" width="20" height="20" />
+                                <b style="color: #ff6a00;">Your Order Will be Delivered By &nbsp;{{POrderResult.PODeliveryDate|DateTimeFormate}}</b>
+                            </div>
+                        </div>
+
+                        <p class="TrackDivGap"></p>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 OrderoptionsDiv">
+                                You can now &nbsp;<span class="glyphicon glyphicon glyphicon-map-marker">Track</span>&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon glyphicon-remove-sign">Cancel</span>&nbsp;&nbsp;
+                            <span class="glyphicon glyphicon glyphicon-arrow-left">Revert</span> &nbsp; Your Ordered item(s) from&nbsp;&nbsp;
+                            <button type="button" class="MyOrderBtn">MyOrders</button>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                        </div>
+                        <p class="TrackDivGap"></p>
+                        <div class="row OrderProcessDiv">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-11">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img src="../Images/order1.jpg" width="35px" height="35px" />&nbsp;OrderAccepted
+                                   <b class="index" ng-model="POrderResult.POBackStatus" ng-show="OrderAcceptedStatus(POrderResult.POBackStatus)"><span class="glyphicon glyphicon-ok"></span></b>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="../Images/orderProcess.jpg" width="35px" height="35px" />&nbsp;Processing
+                                     <b class="index" ng-model="POrderResult.POBackStatus" ng-show="OrderProcessing(POrderResult.POBackStatus)"><span class="glyphicon glyphicon-ok"></span></b>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="../Images/orderTransit.png" width="35px" height="35px" />&nbsp;In-Transit
+                                    <b class="index" ng-model="POrderResult.POBackStatus" ng-show="OrderTransit(POrderResult.POBackStatus)"><span class="glyphicon glyphicon-ok"></span></b>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img src="../Images/orderDelivery.jpg" width="35px" height="35px" />&nbsp;Delivery
+                                    <b class="index" ng-model="POrderResult.POBackStatus" ng-show="OrderDelivered(POrderResult.POBackStatus)"><span class="glyphicon glyphicon-ok"></span></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="SummeryDiv">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-4">
+                                <b style="color: #07b2b2">YOUR ORDER SUMMARY {{POrderDetailsResult.length}}&nbsp;</b>item(s)
+                            </div>
+                        </div>
+                        <p class="TrackDivGap"></p>
+                        <div class="row">
+                            <div class="col-md-12" ng-repeat="item in POrderDetailsResult">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <p class="index">{{$index + 1}}</p>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <img src="{{item.FilePath}}{{item.FileName}}" width="80" height="80" />
+                                    </div>
+                                    <div class="col-md-3">
+                                        {{item.ProductDescription}}<br />
+                                        Color:&nbsp;{{item.Color}}<br />
+                                        Quantity:&nbsp;{{item.POItemCount}}&nbsp;*&nbsp;{{item.POItemCost}}
+                                    </div>
+                                    <div class="col-md-4">
+                                        In-a-day Guarantee Delivered by {{item.PODeliveryDate}}<br />
+                                        <p class="informationParaSmall">Delivery Type:&nbsp{{item.PODeliveryType}}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        Rs:&nbsp;{{item.POItemCost * item.POItemCount}} + {{item.POShipCharge}}
+                                    <br />
+                                        <p class="informationParaSmall">(ItemCost + Shipping)</p>
+                                    </div>
+                                </div>
+                                <p class="TrackDivGap"></p>
+                            </div>
+                            </>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-show="SessionDataNull">
+            Sorry,Your Session is Expired
+            <br />
+            Please select Track Tab, if you want to See/Print your Order Summary.
+        </div>
+        <div ng-show="ErrorInSession">
+            Error in Session Data,please Try Again Later.
+        </div>
+    </div>
+</body>
+</html>
